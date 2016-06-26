@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <%- include includes/head.ejs %>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div id="header">
+
+        <%- include includes/header.ejs %>
+
+    </div>
+
+    <div id="container">
+
+        <style>
+            .category-content {padding: 1px 0 0 0 !important;}
+            .fullstory-content-slider {margin-bottom:0 !important;}
+        </style>
+
+        <% if (typeof top == 'object' && top.movies.length) { %>
+
+        <div class="fullstory-content">
+            <div style="background:#000000;color:#FFFFFF;text-align:center;height: 30px;font-size: larger;">
+                <%- top.name %>
+            </div>
+            <div class="fullstory-content-slider" style="background-color:#000;">
+                <div id="full-slider" style="display: none;">
+
+                    <% for (var m = 0; m < top.movies.length; m++) { %>
+
+                    <div class="item">
+                        <a href="<%- top.movies[m].url %>">
+                            <img src="<%- top.movies[m].poster %>" alt="<%- top.movies[m].title_ru %> (<%- top.movies[m].year %>)">
+                            <div class="fullstory-slider-title"><%- top.movies[m].title_ru %> (<%- top.movies[m].year %>)</div>
+                        </a>
+                    </div>
+
+                    <% } %>
+
+                    <div style="background:#000000;height: 15px;margin-bottom: 10px;"></div>
+
+                </div>
+            </div>
+            <div style="background:#000000;height: 15px;margin-bottom: 10px;"></div>
+        </div>
+
+        <% } %>
+
+        <div class="category-block">
+            <div class="category-content">
+                <div class="fresh-year">
+                    <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>">
+                        <i class="fresh-year-icon"></i>Все жанры
+                    </a>
+                    <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>">
+                        <i class="fresh-year-icon"></i>Все годы
+                    </a>
+                </div>
+                <div class="category_title1">
+
+                    <div style="float: left;margin: 10px;"><script type="text/javascript" src="http://yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
+
+                    <a class="main_btn_podborka" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Лучшие подборки</a>
+                    <a class="main_btn_hd" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a>
+
+						<span class="sortn">
+							<span class="sortn1">
+								<svg viewBox="26.2 26.9 148.1 147.5">
+									<polygon points="91.3,26.9 63.1,26.9 63.1,119.4 26.2,119.4 77.5,174.4 128.1,119.4 91.3,119.4"/>
+									<rect x="109.4" y="82.5" width="27.5" height="18.8"/>
+									<rect x="109.4" y="54.4" width="46.2" height="18.8"/>
+									<rect x="109.4" y="26.9" width="65" height="18.8"/>
+								</svg>
+							</span>
+							<form>
+								<% for (var p = 0; p < page.sorting.length; p++) { %>
+
+                                <% if (page.sorting[p].active) { %>
+
+                                <a href="<%- page.sorting[p].url %>">
+                                    <strong><%- page.sorting[p].name %></strong>
+                                </a>
+
+                                <% } else { %>
+
+                                <a href="<%- page.sorting[p].url %>">
+                                    <%- page.sorting[p].name %>
+                                </a>
+
+                                <% } %>
+
+                                <% } %>
+							</form>
+						</span>
+                </div>
+
+                <div class="cat_h1"><h1><%- page.title %></h1></div>
+
+                <div id='dle-content'>
+
+                    <% if (typeof movies == 'object' && movies.length) { for (var m = 0; m < movies.length; m++) { %>
+
+                    <div class="owl-item">
+                        <div class="item">
+                            <div class="main-sliders-ico">
+                                <span class="main-sliders-mob"></span>
+                                <span class="main-sliders-720p"></span>
+                            </div>
+                            <div class="main-sliders-shadow">
+                                <div class="main-sliders-img">
+
+										<span class="main-sliders-info">
+											<span class="main-sliders-info1">
+												<span class="main-sliders-popup">
+													<span><%- movies[m].premiere %></span>
+													<em><%- movies[m].genres %></em>
+													<i>
+                                                        <%- movies[m].description %>
+                                                    </i>
+												</span>
+											</span>
+										</span>
+										<span class="main-sliders-bg">
+											<a href="<%- movies[m].url %>" class="main-sliders-play"><svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
+										</span>
+                                    <img src="<%- movies[m].poster %>" alt="<%- movies[m].title_ru %> (<%- movies[m].year %>)">
+                                </div>
+                            </div>
+                            <div class="main-sliders-title">
+                                <a href="<%- movies[m].url %>"><%- movies[m].title_ru %> (<%- movies[m].year %>)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } } %>
+
+                    <div class="basenavi">
+                        <div class="navigation">
+                            <% if (page.page.prev) { %><a href="<%- page.page.prev %>" rel="nofollow">Предыдущая страница</a><% } %>
+                            <span><%- page.page.current %></span>
+                            <% if (page.page.next) { %><a href="<%- page.page.next %>" rel="nofollow">Слудующая страница</a><% } %>
+                        </div>
+                        <div class="nextprev">
+                            <% if (page.page.prev) { %><a href="<%- page.page.prev %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.page.prev) { %></a><% } %>
+                            <% if (page.page.next) { %><a href="<%- page.page.next %>" rel="nofollow"><% } %><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span><% if (page.page.next) { %></a><% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+    <div id="spacer"></div>
+
+</div>
+
+<div id="footer">
+
+    <%- include includes/footer.ejs %>
+
+</div>
+
+</body>
+</html>

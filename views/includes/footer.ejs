@@ -1,0 +1,57 @@
+<div class="main_footer-info">
+    <div class="main_footer-info1">
+
+        <% if (page.seo) { %>
+
+        <div class="main-sliders-top1">
+            <h2 class="main-sliders-top-titles"><%- page.title %></h2>
+        </div>
+
+        <div class="main_footer-info2">
+            <%- page.seo %>
+        </div>
+
+        <% } %>
+
+        <div class="fullstory-drops recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
+            <div>Вы надавно смотрели:</div>
+            <div id="recentlyViewed"></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-logo"></div>
+    <div class="footer1">© 2016 CinemaPress</div>
+
+    <% if (page.social) { %>
+    <div class="counts">
+        <% if (page.social.vk) { %><a href="<%- page.social.vk %>">ВК</a><% } %>
+        <span> </span>
+        <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>">facebook</a><% } %>
+        <span> </span>
+        <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>">twitter</a><% } %>
+        <span> </span>
+        <% if (page.social.gplus) { %><a href="<%- page.social.gplus %>">G+</a><% } %>
+        <span> </span>
+    </div>
+    <% } %>
+
+    <div class="footer2">
+        Для связи с администрацией: <%- page.email %>
+    </div>
+</div>
+
+<script src="/themes/hodor/public/js/all.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+    WebFont.load({
+        google: {
+            families: ['PT Sans:400,700,400italic,700italic']
+        }
+    });
+</script>
+
+<%- page.codes.footer %>

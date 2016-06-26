@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div id="header">
+
+        <% include includes/header.ejs %>
+
+    </div>
+
+    <div id="container">
+
+        <div class="fullstory-content">
+            <div id='dle-content'>
+                <div class="full">
+                    <div class="fullstory-drops">
+
+                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <%- movie.genres_url %> - <%- movie.title_ru %>
+
+                        <div style="float: right;color: #FFFFFF;"><script type="text/javascript" src="http://yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
+
+                    </div>
+                    <div id="left">
+                        <div class="full-left">
+                            <div class="full-poster">
+                                <img src="<%- movie.poster %>" id="imgbigp" alt="<%- movie.title_ru %> (<%- movie.year %>)">
+                            </div>
+                            <div class="full-kino-info">
+                                <div><span>КиноПоиск:</span> <%- movie.kp_rating/10 %> (<%- movie.kp_vote %>)</div>
+                                <div><span>IMDb:</span> <%- movie.imdb_rating/10 %> (<%- movie.imdb_vote %>)</div>
+                                <div><span>Страна:</span> <%- movie.countries_url %></div>
+                                <div><span>Год:</span> <%- movie.year_url %></div>
+                                <div><span>Жанр:</span> <%- movie.genres_url %></div>
+                                <div><span>Режиссер:</span> <%- movie.directors_url %></div>
+                            </div>
+                            <div class="full-kino-info1"><span>В ролях:</span> <%- movie.actors_url %></div>
+                        </div>
+
+                        <a class="full_btn_podborka" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Подборка фильмов</a>
+                        <div class="best-film-block">
+                            <ul class="best-film-menu">
+                                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2016">Лучшие фильмы 2016</a></li>
+                                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2015">Лучшие фильмы 2015</a></li>
+                                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2014">Лучшие фильмы 2014</a></li>
+                            </ul>
+                            <div class="best-icon"></div>
+                        </div>
+
+                        <% if (typeof soon == 'object' && soon.movies.length) { %>
+
+                        <div class="full-title-scoro-block">
+                            <%- soon.name %>
+                        </div>
+                        <div class="fullstory-content-slider-scoro">
+                            <div id="full-slider-scoro">
+
+                                <% for (var m = 0; m < soon.movies.length; m++) { %>
+
+                                <div class="item-scoro">
+                                    <a href="<%- soon.movies[m].url %>">
+                                        <img src="<%- soon.movies[m].poster %>" alt="<%- soon.movies[m].title_ru %> (<%- soon.movies[m].year %>)">
+                                        <div class="fullstory-slider-title-scoro"><%- soon.movies[m].title_ru %> (<%- soon.movies[m].year %>)</div>
+                                    </a>
+                                </div>
+
+                                <% } %>
+
+                            </div>
+                        </div>
+
+                        <% } %>
+
+                    </div>
+                    <div id="right" class="story-video">
+                        <div class="title-date-story">
+                            <div class="full-kino-title">
+                                <h1><%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн 720 hd</h1>
+                            </div>
+                            <div class="full-kino-date">
+                                <%- movie.premiere %>
+                            </div>
+                            <div class="full-kino-story disable_select">
+                                <%- movie.description %>
+                                <div style="text-align:center;">
+                                    <h2><%- movie.title_ru %> (<%- movie.year %>) смотреть бесплатно в хорошем качестве hd 720</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="full-right-video1 watchLaterBlock" style="display: none;">
+                            <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница фильма будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
+                        </div>
+                        <div class="section">
+                            <div class="fullcomplaint">
+
+                            </div>
+                            <ul class="tabs">
+                                <li class="current">Фильм</li>
+                                <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" style="float: right;">Трейлер</a>
+                                <a href="<%- movie.url %>/<%- page.urls.movies.online %>" style="float: right;">Онлайн</a>
+                            </ul>
+                            <div class="box visible">
+                                <% if (!page.abuse || page.abuse.indexOf(''+movie.kp_id) === -1) { %>
+                                <div id="yohoho" data-title="<%- movie.title %> (<%- movie.year %>)"></div>
+                                <script src="https://yohoho.xyz/yo.js"></script>
+                                <% } else { %>
+                                <p style="color: #fff;">Фильм закрыт по просьбе правообладателя!</p>
+                                <% } %>
+                            </div>
+                        </div>
+
+                        <div class="full-screen">
+
+                            <% if (movie.pictures.length) { for (var p = 0; p < movie.pictures.length; p++) { %>
+
+                            <div><a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- movie.pictures[p].picture_min %>" alt=""></a></div>
+
+                            <% } } %>
+
+                        </div>
+
+                        <div class="full-torrent">
+                            <div class="full-torrent-title">
+                                <a href="<%- movie.url %>/<%- page.urls.movies.download %>">
+                                    <svg viewBox="36 2.2 133.2 133.4">
+                                        <polygon points="169.2,106 154.4,106 154.4,120.8 50.8,120.8 50.8,106 36,106 36,135.6 169.2,135.6 "/>
+                                        <path d="M80.4,2.2v29.6h-37l59.2,74l59.2-74h-37V2.2H80.4z M131,46.6l-28.4,35.6L74.2,46.6h21V17H110v29.6H131z"/>
+                                    </svg>
+                                    <%- movie.title_ru %> (<%- movie.year %>) Скачать с торрент бесплатно
+                                </a>
+                            </div>
+                        </div>
+
+                        <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+
+                        <% if (movies[type].length) { for (var t = 0; t < movies[type].length; t++) { %>
+
+                        <div class="main-sliders-top1">
+                            <div class="main-sliders-top-title">
+
+                                <%- movies[type][t].name %>
+
+                            </div>
+                        </div>
+
+                        <div class="fullstory-content-slider">
+                            <div class="full-related" style="display: none;">
+
+                                <% if (movies[type][t].movies.length) { for (var m = 0; m < movies[type][t].movies.length; m++) { %>
+
+                                <div class="item">
+                                    <a href="<%- movies[type][t].movies[m].url %>">
+                                        <img src="<%- movies[type][t].movies[m].poster %>" alt="<%- movies[type][t].movies[m].title_ru %> (<%- movies[type][t].movies[m].year %>)">
+                                        <div class="fullstory-slider-title"><%- movies[type][t].movies[m].title_ru %> (<%- movies[type][t].movies[m].year %>)</div>
+                                    </a>
+                                </div>
+
+                                <% } } %>
+
+                            </div>
+                        </div>
+
+                        <% } } %>
+
+                        <% } } } %>
+
+                        <% if (page.comments) { %>
+                        <%- page.comments %>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vote-block"></div>
+    </div>
+
+    <div class="clear"></div>
+    <div id="spacer"></div>
+
+</div>
+
+<div id="footer">
+
+    <% include includes/footer.ejs %>
+
+</div>
+
+</body>
+</html>

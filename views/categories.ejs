@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div id="header">
+
+        <% include includes/header.ejs %>
+
+    </div>
+
+    <div id="container">
+
+        <div class="category-block">
+            <div class="category-content" style="padding: 0;">
+
+                <div class="category_title1">
+
+                    <div style="float: left;margin: 10px;"><script type="text/javascript" src="http://yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
+
+                </div>
+
+                <div id='dle-content'>
+                    <div class="addcomm">
+                        <h1 class="addcomm-title" style="padding-bottom: 0"><%- page.title %></h1>
+                    </div>
+                    <div class="podborki-block">
+
+                        <% if (typeof categories == 'object' && categories.length) { %>
+
+                        <% for (var c = 0; c < categories.length; c++) { %>
+
+                        <div class="podborki-item-block">
+                            <a href="<%- categories[c].url %>" class="podborki-item">
+                                <span class="podborki-img"><img src="<% if (categories[c].image) { %><%- categories[c].image %><% } else { %>http://st.kp.yandex.net/images/kadr/sm_2136182.jpg<% } %>" class="tagimg"></span>
+                                <span class="podborki-title"><%- categories[c].name %></span>
+                            </a>
+                        </div>
+
+                        <% } %>
+
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+    <div id="spacer"></div>
+
+</div>
+
+<div id="footer">
+
+    <% include includes/footer.ejs %>
+
+</div>
+
+</body>
+</html>
