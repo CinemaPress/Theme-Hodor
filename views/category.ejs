@@ -120,7 +120,7 @@
 													<span><%- movies[m].premiere %></span>
 													<em><%- movies[m].genres %></em>
 													<i>
-                                                        <%- movies[m].description %>
+                                                        <%- movies[m].description.substr(0, 200) %>...
                                                     </i>
 												</span>
 											</span>
@@ -141,13 +141,31 @@
 
                     <div class="basenavi">
                         <div class="navigation">
-                            <% if (page.page.prev) { %><a href="<%- page.page.prev %>" rel="nofollow">Предыдущая страница</a><% } %>
-                            <span><%- page.page.current %></span>
-                            <% if (page.page.next) { %><a href="<%- page.page.next %>" rel="nofollow">Слудующая страница</a><% } %>
+                            <% if (page.pagination.prev.length) { %>
+                            <% for (var prev = page.pagination.prev.length-4; prev < page.pagination.prev.length; prev++) { %>
+                            <% if (page.pagination.prev[prev]) { %>
+                            <a href="<%- page.pagination.prev[prev].link %>" rel="nofollow">
+                                <%- page.pagination.prev[prev].number %>
+                            </a>
+                            <% } %>
+                            <% } %>
+                            <span class="nav_ext">...</span>
+                            <% } %>
+                            <span><%- page.pagination.current %></span>
+                            <% if (page.pagination.next.length) { %>
+                            <span class="nav_ext">...</span>
+                            <% for (var next = 0; next < 4; next++) { %>
+                            <% if (page.pagination.next[next]) { %>
+                            <a href="<%- page.pagination.next[next].link %>" rel="nofollow">
+                                <%- page.pagination.next[next].number %>
+                            </a>
+                            <% } %>
+                            <% } %>
+                            <% } %>
                         </div>
                         <div class="nextprev">
-                            <% if (page.page.prev) { %><a href="<%- page.page.prev %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.page.prev) { %></a><% } %>
-                            <% if (page.page.next) { %><a href="<%- page.page.next %>" rel="nofollow"><% } %><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span><% if (page.page.next) { %></a><% } %>
+                            <% if (page.pagination.prev.length) { %><a href="<%- page.pagination.prev.pop().link %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.pagination.prev.length) { %></a><% } %>
+                            <% if (page.pagination.next.length) { %><a href="<%- page.pagination.next[0].link %>" rel="nofollow"><% } %><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span><% if (page.pagination.next.length) { %></a><% } %>
                         </div>
                     </div>
                 </div>
