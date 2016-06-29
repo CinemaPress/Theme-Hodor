@@ -22,7 +22,7 @@
                 <div class="full">
                     <div class="fullstory-drops">
 
-                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <%- movie.genres_url %> - <%- movie.title_ru %>
+                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - <%- movie.title_ru %>
 
                         <div style="float: right;color: #FFFFFF;"><script type="text/javascript" src="http://yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
 
@@ -33,14 +33,28 @@
                                 <img src="<%- movie.poster %>" id="imgbigp" alt="<%- movie.title_ru %> (<%- movie.year %>)">
                             </div>
                             <div class="full-kino-info">
+                                <% if (movie.kp_vote) { %>
                                 <div><span>КиноПоиск:</span> <%- movie.kp_rating/10 %> (<%- movie.kp_vote %>)</div>
+                                <% } %>
+                                <% if (movie.imdb_vote) { %>
                                 <div><span>IMDb:</span> <%- movie.imdb_rating/10 %> (<%- movie.imdb_vote %>)</div>
+                                <% } %>
+                                <% if (movie.countries_url) { %>
                                 <div><span>Страна:</span> <%- movie.countries_url %></div>
+                                <% } %>
+                                <% if (movie.year_url) { %>
                                 <div><span>Год:</span> <%- movie.year_url %></div>
+                                <% } %>
+                                <% if (movie.genres_url) { %>
                                 <div><span>Жанр:</span> <%- movie.genres_url %></div>
+                                <% } %>
+                                <% if (movie.directors_url) { %>
                                 <div><span>Режиссер:</span> <%- movie.directors_url %></div>
+                                <% } %>
                             </div>
+                            <% if (movie.actors_url) { %>
                             <div class="full-kino-info1"><span>В ролях:</span> <%- movie.actors_url %></div>
+                            <% } %>
                         </div>
 
                         <a class="full_btn_podborka" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Подборка фильмов</a>
@@ -95,13 +109,10 @@
                         </div>
 
                         <div class="section">
-                            <div class="fullcomplaint">
-
-                            </div>
-                            <ul class="tabs">
+                            <ul class="tabss">
                                 <li class="current">Торренты</li>
-                                <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" style="float: right;">Трейлер</a>
-                                <a href="<%- movie.url %>/<%- page.urls.movies.online %>" style="float: right;">Онлайн</a>
+                                <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></li>
+                                <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
                             </ul>
                             <div class="box visible">
                                 <% if (!page.abuse || page.abuse.indexOf(''+movie.kp_id) === -1) { %>

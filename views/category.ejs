@@ -17,18 +17,13 @@
 
     <div id="container">
 
-        <style>
-            .category-content {padding: 1px 0 0 0 !important;}
-            .fullstory-content-slider {margin-bottom:0 !important;}
-        </style>
-
         <% if (typeof top == 'object' && top.movies.length) { %>
 
         <div class="fullstory-content">
             <div style="background:#000000;color:#FFFFFF;text-align:center;height: 30px;font-size: larger;">
                 <%- top.name %>
             </div>
-            <div class="fullstory-content-slider" style="background-color:#000;">
+            <div class="fullstory-content-slider" style="background-color:#000; margin-bottom:0 !important;">
                 <div id="full-slider" style="display: none;">
 
                     <% for (var m = 0; m < top.movies.length; m++) { %>
@@ -52,7 +47,7 @@
         <% } %>
 
         <div class="category-block">
-            <div class="category-content">
+            <div class="category-content" style="padding: 1px 0 0 0 !important;">
                 <div class="fresh-year">
                     <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>">
                         <i class="fresh-year-icon"></i>Все жанры
@@ -77,7 +72,7 @@
 									<rect x="109.4" y="26.9" width="65" height="18.8"/>
 								</svg>
 							</span>
-							<form>
+							<span class="sortn2">
 								<% for (var p = 0; p < page.sorting.length; p++) { %>
 
                                 <% if (page.sorting[p].active) { %>
@@ -95,7 +90,7 @@
                                 <% } %>
 
                                 <% } %>
-							</form>
+							</span>
 						</span>
                 </div>
 
