@@ -26,16 +26,16 @@
             <div class="fullstory-content-slider" style="background-color:#000; margin-bottom:0 !important;">
                 <div id="full-slider" style="display: none;">
 
-                    <% for (var m = 0; m < top.movies.length; m++) { %>
+                    <% top.movies.forEach(function (movie) { %>
 
                     <div class="item">
-                        <a href="<%- top.movies[m].url %>">
-                            <img src="<%- top.movies[m].poster %>" alt="<%- top.movies[m].title_ru %> (<%- top.movies[m].year %>)">
-                            <div class="fullstory-slider-title"><%- top.movies[m].title_ru %> (<%- top.movies[m].year %>)</div>
+                        <a href="<%- movie.url %>">
+                            <img src="<%- movie.poster %>" alt="<%- movie.title_ru %> (<%- movie.year %>)">
+                            <div class="fullstory-slider-title"><%- movie.title_ru %> (<%- movie.year %>)</div>
                         </a>
                     </div>
 
-                    <% } %>
+                    <% }); %>
 
                     <div style="background:#000000;height: 15px;margin-bottom: 10px;"></div>
 
@@ -73,23 +73,25 @@
 								</svg>
 							</span>
 							<span class="sortn2">
-								<% for (var p = 0; p < page.sorting.length; p++) { %>
+                                
+                                <% page.sorting.forEach(function (sort) { %>
 
-                                <% if (page.sorting[p].active) { %>
+                                <% if (sort.active) { %>
 
-                                <a href="<%- page.sorting[p].url %>">
-                                    <strong><%- page.sorting[p].name %></strong>
+                                <a href="<%- sort.url %>">
+                                    <strong><%- sort.name %></strong>
                                 </a>
 
                                 <% } else { %>
 
-                                <a href="<%- page.sorting[p].url %>">
-                                    <%- page.sorting[p].name %>
+                                <a href="<%- sort.url %>">
+                                    <%- sort.name %>
                                 </a>
 
                                 <% } %>
 
-                                <% } %>
+                                <% }); %>
+                                
 							</span>
 						</span>
                 </div>
@@ -98,7 +100,9 @@
 
                 <div id='dle-content'>
 
-                    <% if (typeof movies == 'object' && movies.length) { for (var m = 0; m < movies.length; m++) { %>
+                    <% if (typeof movies == 'object' && movies.length) { %>
+
+                    <% movies.forEach(function (movie) { %>
 
                     <div class="owl-item">
                         <div class="item">
@@ -112,54 +116,52 @@
 										<span class="main-sliders-info">
 											<span class="main-sliders-info1">
 												<span class="main-sliders-popup">
-													<span><%- movies[m].premiere %></span>
-													<em><%- movies[m].genres %></em>
+													<span><%- movie.premiere %></span>
+													<em><%- movie.genres %></em>
 													<i>
-                                                        <%- movies[m].description.substr(0, 200) %>...
+                                                        <%- movie.description.substr(0, 200) %>...
                                                     </i>
 												</span>
 											</span>
 										</span>
 										<span class="main-sliders-bg">
-											<a href="<%- movies[m].url %>" class="main-sliders-play"><svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
+											<a href="<%- movie.url %>" class="main-sliders-play"><svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
 										</span>
-                                    <img src="<%- movies[m].poster %>" alt="<%- movies[m].title_ru %> (<%- movies[m].year %>)">
+                                    <img src="<%- movie.poster %>" alt="<%- movie.title_ru %> (<%- movie.year %>)">
                                 </div>
                             </div>
                             <div class="main-sliders-title">
-                                <a href="<%- movies[m].url %>"><%- movies[m].title_ru %> (<%- movies[m].year %>)</a>
+                                <a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>)</a>
                             </div>
                         </div>
                     </div>
 
-                    <% } } %>
+                    <% }); %>
+
+                    <% } %>
 
                     <div class="basenavi">
                         <div class="navigation">
                             <% if (page.pagination.prev.length) { %>
-                            <% for (var prev = page.pagination.prev.length-4; prev < page.pagination.prev.length; prev++) { %>
-                            <% if (page.pagination.prev[prev]) { %>
-                            <a href="<%- page.pagination.prev[prev].link %>" rel="nofollow">
-                                <%- page.pagination.prev[prev].number %>
+                            <% page.pagination.prev.slice(-4).forEach(function (prev) { %>
+                            <a href="<%- prev.link %>" rel="nofollow">
+                                <%- prev.number %>
                             </a>
-                            <% } %>
-                            <% } %>
+                            <% }); %>
                             <span class="nav_ext">...</span>
                             <% } %>
                             <span><%- page.pagination.current %></span>
                             <% if (page.pagination.next.length) { %>
                             <span class="nav_ext">...</span>
-                            <% for (var next = 0; next < 4; next++) { %>
-                            <% if (page.pagination.next[next]) { %>
-                            <a href="<%- page.pagination.next[next].link %>" rel="nofollow">
-                                <%- page.pagination.next[next].number %>
+                            <% page.pagination.next.slice(0,4).forEach(function (next) { %>
+                            <a href="<%- next.link %>" rel="nofollow">
+                                <%- next.number %>
                             </a>
-                            <% } %>
-                            <% } %>
+                            <% }); %>
                             <% } %>
                         </div>
                         <div class="nextprev">
-                            <% if (page.pagination.prev.length) { %><a href="<%- page.pagination.prev.pop().link %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.pagination.prev.length) { %></a><% } %>
+                            <% if (page.pagination.prev.length) { %><a href="<%- page.pagination.prev[page.pagination.prev.length-1].link %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.pagination.prev.length) { %></a><% } %>
                             <% if (page.pagination.next.length) { %><a href="<%- page.pagination.next[0].link %>" rel="nofollow"><% } %><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span><% if (page.pagination.next.length) { %></a><% } %>
                         </div>
                     </div>

@@ -32,12 +32,14 @@
 
         <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
-        <% if (movies[type].length) { for (var t = 0; t < movies[type].length; t++) { %>
+        <% if (movies[type].length) { %>
+
+        <% movies[type].forEach(function (category) { %>
 
         <div class="main-sliders-top1">
             <div class="main-sliders-top-title">
 
-                <%- movies[type][t].name %>
+                <%- category.name %>
 
             </div>
         </div>
@@ -46,7 +48,9 @@
             <div class="main-sliders">
                 <div class="movie-slider" style="display: none;">
 
-                    <% if (movies[type][t].movies.length) { for (var m = 0; m < movies[type][t].movies.length; m++) { %>
+                    <% if (category.movies.length) { %>
+
+                    <% category.movies.forEach(function (movie) { %>
 
                     <div class="item">
                         <div class="main-sliders-ico">
@@ -55,46 +59,49 @@
                         </div>
                         <div class="main-sliders-shadow">
                             <div class="main-sliders-img">
-
                                     <span class="main-sliders-info">
                                         <span class="main-sliders-info1">
                                             <span class="main-sliders-popup">
                                                 <span>
-                                                    <%- movies[type][t].movies[m].premiere %>
+                                                    <%- movie.premiere %>
                                                 </span>
                                                 <em>
-                                                    <%- movies[type][t].movies[m].genres %>
+                                                    <%- movie.genres %>
                                                 </em>
                                                 <i>
-                                                    <%- movies[type][t].movies[m].description.substr(0, 200) %>...
+                                                    <%- movie.description.substr(0, 200) %>...
                                                 </i>
                                             </span>
                                         </span>
                                     </span>
                                     <span class="main-sliders-bg">
-                                        <a href="<%- movies[type][t].movies[m].url %>" class="main-sliders-play">
+                                        <a href="<%- movie.url %>" class="main-sliders-play">
                                             <svg viewBox="83.1 54.3 61.5 73.1">
                                                 <polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon>
                                             </svg>
                                         </a>
                                     </span>
-                                <img src="<%- movies[type][t].movies[m].poster %>" alt="<%- movies[type][t].movies[m].title_ru %> (<%- movies[type][t].movies[m].year %>)" style="height: 260px; width: 180px;">
+                                <img src="<%- movie.poster %>" alt="<%- movie.title_ru %> (<%- movie.year %>)" style="height: 260px; width: 180px;">
                             </div>
                         </div>
                         <div class="main-sliders-title">
-                            <a href="<%- movies[type][t].movies[m].url %>">
-                                <%- movies[type][t].movies[m].title_ru %> (<%- movies[type][t].movies[m].year %>)
+                            <a href="<%- movie.description %>">
+                                <%- movie.title_ru %> (<%- movie.year %>)
                             </a>
                         </div>
                     </div>
 
-                    <% } } %>
+                    <% }); %>
+
+                    <% } %>
 
                 </div>
             </div>
         </div>
 
-        <% } } %>
+        <% }); %>
+
+        <% } %>
 
         <% } } } %>
 
