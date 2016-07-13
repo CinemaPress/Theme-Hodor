@@ -114,8 +114,9 @@
                                 <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
                             </ul>
                             <div class="box visible">
-                                <div id="yohoho" data-title="<%- movie.title %> (<%- movie.year %>) трейлер"></div>
-                                <script src="https://yohoho.xyz/yo.js"></script>
+                                <% if (page.player) { %>
+                                <%- page.player %>
+                                <% } %>
                             </div>
                         </div>
 

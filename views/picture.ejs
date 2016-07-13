@@ -109,11 +109,9 @@
                         </div>
 
                         <div class="section">
-                            <% if (movie.pictures.length) { for (var p = 0; p < movie.pictures.length; p++) { %>
-
-                            <div><img src="<%- movie.pictures[p].picture_big %>" alt="<%- movie.title_ru %> (<%- movie.year %>) смотреть кадры фильма" style="width: 100%; margin: 0  auto 20px auto;"></div>
-
-                            <% } } %>
+                            <% if (page.player) { %>
+                            <%- page.player %>
+                            <% } %>
                         </div>
 
                         <div class="full-torrent">

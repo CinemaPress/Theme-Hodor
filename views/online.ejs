@@ -117,11 +117,8 @@
                                 <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></li>
                             </ul>
                             <div class="box visible">
-                                <% if (!page.abuse || page.abuse.indexOf(''+movie.kp_id) === -1) { %>
-                                <div id="yohoho" data-title="<%- movie.title %> (<%- movie.year %>)"></div>
-                                <script src="https://yohoho.xyz/yo.js"></script>
-                                <% } else { %>
-                                <p style="color: #fff;">Фильм закрыт по просьбе правообладателя!</p>
+                                <% if (page.player) { %>
+                                <%- page.player %>
                                 <% } %>
                             </div>
                         </div>
