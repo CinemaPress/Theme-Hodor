@@ -1,7 +1,7 @@
 # Theme Hodor
-:art: Шаблон «Hodor» для CinemaPress ACMS (kinokong.net)
+:art: Шаблон «Hodor» для CinemaPress ACMS
 
-![Шаблон «Hodor» для CinemaPress ACMS (kinokong.net)](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Шаблон «Hodor» для CinemaPress ACMS (kinokong.net)")
+![Шаблон «Hodor» для CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Шаблон «Hodor» для CinemaPress ACMS")
 
 ## Установка
 1. [Скачать архив](https://github.com/CinemaPress/Theme-Hodor/archive/master.zip)
