@@ -58,7 +58,7 @@
                 </div>
                 <div class="category_title1">
 
-                    <div style="float: left;margin: 10px;"><script type="text/javascript" src="http://yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
+                    <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
 
                     <a class="main_btn_podborka" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Лучшие подборки</a>
                     <a class="main_btn_hd" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a>
@@ -144,9 +144,7 @@
                         <div class="navigation">
                             <% if (page.pagination.prev.length) { %>
                             <% page.pagination.prev.slice(-4).forEach(function (prev) { %>
-                            <a href="<%- prev.link %>" rel="nofollow">
-                                <%- prev.number %>
-                            </a>
+                            <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
                             <% }); %>
                             <span class="nav_ext">...</span>
                             <% } %>
@@ -154,9 +152,7 @@
                             <% if (page.pagination.next.length) { %>
                             <span class="nav_ext">...</span>
                             <% page.pagination.next.slice(0,4).forEach(function (next) { %>
-                            <a href="<%- next.link %>" rel="nofollow">
-                                <%- next.number %>
-                            </a>
+                            <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
                             <% }); %>
                             <% } %>
                         </div>
