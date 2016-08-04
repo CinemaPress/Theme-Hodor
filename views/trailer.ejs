@@ -22,7 +22,7 @@
                 <div class="full">
                     <div class="fullstory-drops">
 
-                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - <%- movie.title_ru %>
+                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - - <a href="<%- movie.url %>"><%- movie.title_ru %></a> - Трейлер
 
                         <div style="float: right;color: #FFFFFF;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
 
@@ -101,10 +101,6 @@
                                 <%- movie.premiere %>
                             </div>
                             <div class="full-kino-story disable_select">
-                                <%- movie.description %>
-                                <div style="text-align:center;">
-                                    <h2><%- movie.title_ru %> (<%- movie.year %>) смотреть русскоязычный трейлер</h2>
-                                </div>
                             </div>
                         </div>
 
