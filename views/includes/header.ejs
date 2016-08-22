@@ -39,20 +39,21 @@
                 <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a></li>
                 <li> <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
                 <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a></li>
-                <li><a href="#">Топ</a>
-							<span>
-								<a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-rating-up">По рейтингу КиноПоиск</a>
-								<a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-rating-up">По рейтингу IMDb</a>
-                                <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-vote-up">По числу голосов КиноПоиск</a>
-                                <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-vote-up">По числу голосов IMDb</a>
-                                <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Топ сериалов</a>
-                                <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=imdb-vote-up">Топ мультфильмов</a>
-                                <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=imdb-vote-up">Топ аниме</a>
-							</span>
+                <li>
+                    <a href="#">Топ</a>
+                    <span>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-rating-up">По рейтингу КиноПоиск</a>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-rating-up">По рейтингу IMDb</a>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-vote-up">По числу голосов КиноПоиск</a>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-vote-up">По числу голосов IMDb</a>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Топ сериалов</a>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=imdb-vote-up">Топ мультфильмов</a>
+                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=imdb-vote-up">Топ аниме</a>
+                    </span>
                 </li>
             </ul>
 
-            <a href="#continueViewing" class="top-see-all continueViewingBlock" id="continueViewing" style="display: none;">
+            <a href="javascript:void(0)" class="top-see-all continueViewingBlock" id="continueViewing" style="display: none;">
                 <svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"/></svg>
                 <span>На чем остановился?</span>
             </a>
