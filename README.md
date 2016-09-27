@@ -1,7 +1,10 @@
 # Theme Hodor
-:art: Шаблон «Hodor» для CinemaPress ACMS
 
 ![Шаблон «Hodor» для CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Шаблон «Hodor» для CinemaPress ACMS")
+
+:art: Шаблон «Hodor» для CinemaPress ACMS
+
+- <a href="http://Hodor.CinemaPress.org/" target="_blank">Hodor.CinemaPress.org</a>
 
 ## Установка
 1. [Скачать архив](https://github.com/CinemaPress/Theme-Hodor/archive/master.zip)
