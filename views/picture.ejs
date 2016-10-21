@@ -100,8 +100,16 @@
                             <div class="full-kino-date">
                                 <%- movie.premiere %>
                             </div>
+                            <% if (page.seo) { %>
                             <div class="full-kino-story disable_select">
+                                <%- page.seo %>
                             </div>
+                            <% } %>
+                        </div>
+
+                        <div class="full-right-video1 episodesListBlock" style="display: none;">
+                            <h3><%- movie.title %> новые серии</h3>
+                            <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
                         </div>
 
                         <div class="section">
@@ -171,11 +179,9 @@
                 </div>
             </div>
         </div>
-        <div class="vote-block"></div>
     </div>
 
     <div class="clear"></div>
-    <div id="spacer"></div>
 
 </div>
 

@@ -108,6 +108,11 @@
                             </div>
                         </div>
 
+                        <div class="full-right-video1 episodesListBlock" style="display: none;">
+                            <h3><%- movie.title %> новые серии</h3>
+                            <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
+                        </div>
+
                         <div class="full-right-video1 watchLaterBlock" style="display: none;">
                             <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница фильма будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
                         </div>
@@ -149,6 +154,14 @@
                                 </a>
                             </div>
                         </div>
+
+                        <% if (page.seo) { %>
+
+                        <div class="full-right-video1">
+                            <%- page.seo %>
+                        </div>
+
+                        <% } %>
 
                         <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
@@ -199,11 +212,9 @@
                 </div>
             </div>
         </div>
-        <div class="vote-block"></div>
     </div>
 
     <div class="clear"></div>
-    <div id="spacer"></div>
 
 </div>
 

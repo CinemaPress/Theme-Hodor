@@ -164,11 +164,23 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="clear"></div>
-    <div id="spacer"></div>
+
+    <% if (page.seo) { %>
+
+    <div class="main_footer-info">
+        <div class="main_footer-info1">
+            <div class="main_footer-info2">
+                <%- page.seo %>
+            </div>
+        </div>
+    </div>
+
+    <% } %>
+
+    <div class="clear"></div>
 
 </div>
 
