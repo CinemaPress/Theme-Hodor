@@ -86,7 +86,7 @@
                         </div>
                         <div class="main-sliders-title">
                             <a href="<%- movie.url %>">
-                                <%- movie.title_ru %> (<%- movie.year %>)
+                                <%- movie.title_ru %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
                             </a>
                         </div>
                     </div>
