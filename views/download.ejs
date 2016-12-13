@@ -22,7 +22,7 @@
                 <div class="full">
                     <div class="fullstory-drops">
 
-                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - <a href="<%- movie.url %>"><%- movie.title_ru %></a> - Трекер
+                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - <a href="<%- movie.url %>"><%- movie.title %></a> - Трекер
 
                         <div style="float: right;color: #FFFFFF;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
 
@@ -30,7 +30,7 @@
                     <div id="left">
                         <div class="full-left">
                             <div class="full-poster">
-                                <img src="<%- movie.poster %>" id="imgbigp" alt="<%- movie.title_ru %> (<%- movie.year %>)">
+                                <img src="<%- movie.poster %>" id="imgbigp" alt="<%- movie.title %> (<%- movie.year %>)">
                             </div>
                             <div class="full-kino-info">
                                 <% if (movie.kp_vote) { %>
@@ -79,8 +79,8 @@
 
                                 <div class="item-scoro">
                                     <a href="<%- movie.url %>">
-                                        <img src="<%- movie.poster %>" alt="<%- movie.title_ru %> (<%- movie.year %>)">
-                                        <div class="fullstory-slider-title-scoro"><%- movie.title_ru %> (<%- movie.year %>)</div>
+                                        <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)">
+                                        <div class="fullstory-slider-title-scoro"><%- movie.title %> (<%- movie.year %>)</div>
                                     </a>
                                 </div>
 
@@ -95,7 +95,7 @@
                     <div id="right" class="story-video">
                         <div class="title-date-story">
                             <div class="full-kino-title">
-                                <h1><%- movie.title_ru %> (<%- movie.year %>) скачать бесплатно 720 hd</h1>
+                                <h1><%- movie.title %> (<%- movie.year %>) скачать бесплатно 720 hd</h1>
                             </div>
                             <div class="full-kino-date">
                                 <%- movie.premiere %>
@@ -162,8 +162,8 @@
 
                                 <div class="item">
                                     <a href="<%- movie.url %>">
-                                        <img src="<%- movie.poster %>" alt="<%- movie.title_ru %> (<%- movie.year %>)">
-                                        <div class="fullstory-slider-title"><%- movie.title_ru %> (<%- movie.year %>)</div>
+                                        <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)">
+                                        <div class="fullstory-slider-title"><%- movie.title %> (<%- movie.year %>)</div>
                                     </a>
                                 </div>
 

@@ -81,12 +81,12 @@
                                             </svg>
                                         </a>
                                     </span>
-                                <img src="<%- movie.poster %>" alt="<%- movie.title_ru %> (<%- movie.year %>)" style="height: 260px; width: 180px;">
+                                <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)" style="height: 260px; width: 180px;">
                             </div>
                         </div>
                         <div class="main-sliders-title">
                             <a href="<%- movie.url %>">
-                                <%- movie.title_ru %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
+                                <%- movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
                             </a>
                         </div>
                     </div>
