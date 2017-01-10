@@ -20,6 +20,13 @@
         <div class="fullstory-content">
             <div id='dle-content'>
                 <div class="full">
+
+                    <% if (typeof page.adv == 'object' && page.adv.top) { %>
+                    <div style="margin: 10px; text-align: center;">
+                        <%- page.adv.top %>
+                    </div>
+                    <% } %>
+
                     <div class="fullstory-drops">
 
                         <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - <%- movie.title %>
@@ -99,12 +106,6 @@
 
                     </div>
                     <div id="right" class="story-video">
-
-                        <% if (typeof page.adv == 'object' && page.adv.top) { %>
-                        <div style="margin: 10px; text-align: center;">
-                            <%- page.adv.top %>
-                        </div>
-                        <% } %>
 
                         <div class="title-date-story">
                             <div class="full-kino-title">
