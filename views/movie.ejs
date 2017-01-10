@@ -17,15 +17,15 @@
 
     <div id="container">
 
-        <div class="fullstory-content">
-            <div id='dle-content'>
-                <div class="full">
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
 
-                    <% if (typeof page.adv == 'object' && page.adv.top) { %>
-                    <div style="margin: 10px; text-align: center;">
-                        <%- page.adv.top %>
-                    </div>
-                    <% } %>
+        <div class="fullstory-content">
+            <div id="cinemapress-content">
+                <div class="full">
 
                     <div class="fullstory-drops">
 

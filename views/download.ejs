@@ -17,8 +17,14 @@
 
     <div id="container">
 
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
+
         <div class="fullstory-content">
-            <div id='dle-content'>
+            <div id="cinemapress-content">
                 <div class="full">
                     <div class="fullstory-drops">
 
@@ -112,6 +118,12 @@
                             <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
                         </div>
 
+                        <% if (typeof page.adv == 'object' && page.adv.over) { %>
+                        <div class="full-right-video1" style="text-align: center;">
+                            <%- page.adv.over %>
+                        </div>
+                        <% } %>
+
                         <div class="section">
                             <ul class="tabss">
                                 <li class="current">Торренты</li>
@@ -124,6 +136,12 @@
                                 <% } %>
                             </div>
                         </div>
+
+                        <% if (typeof page.adv == 'object' && page.adv.under) { %>
+                        <div class="full-right-video1" style="text-align: center;">
+                            <%- page.adv.under %>
+                        </div>
+                        <% } %>
 
                         <div class="full-screen">
 

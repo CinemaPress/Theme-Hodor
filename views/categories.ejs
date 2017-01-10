@@ -17,6 +17,12 @@
 
     <div id="container">
 
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
+
         <div class="category-block">
             <div class="category-content" style="padding: 0;">
 
@@ -26,7 +32,7 @@
 
                 </div>
 
-                <div id='dle-content'>
+                <div id="cinemapress-content">
                     <div class="addcomm">
                         <h1 class="addcomm-title" style="padding-bottom: 0"><%- page.title %></h1>
                     </div>

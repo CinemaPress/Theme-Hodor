@@ -17,8 +17,14 @@
 
     <div id="container">
 
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
+
         <div class="fullstory-content">
-            <div id='dle-content'>
+            <div id="cinemapress-content">
                 <div class="full">
                     <div class="fullstory-drops">
 
@@ -115,6 +121,13 @@
                         <div class="full-right-video1 watchLaterBlock" style="display: none;">
                             <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница серии будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
                         </div>
+
+                        <% if (typeof page.adv == 'object' && page.adv.over) { %>
+                        <div class="full-right-video1" style="text-align: center;">
+                            <%- page.adv.over %>
+                        </div>
+                        <% } %>
+
                         <div class="section">
                             <ul class="tabss">
                                 <li><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
@@ -126,6 +139,12 @@
                                 <% } %>
                             </div>
                         </div>
+
+                        <% if (typeof page.adv == 'object' && page.adv.under) { %>
+                        <div class="full-right-video1" style="text-align: center;">
+                            <%- page.adv.under %>
+                        </div>
+                        <% } %>
 
                         <div class="full-screen">
 
