@@ -19,6 +19,12 @@
 
         <div class="main_h"><h1>Фильмы онлайн в хорошем качестве</h1></div>
 
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
+
         <div class="main-sliders-top1" style="background: #333; height: 80px;">
             <div class="main-sliders-top-title">
 
@@ -104,6 +110,12 @@
         <% } %>
 
         <% } } } %>
+
+        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.bottom %>
+        </div>
+        <% } %>
 
     </div>
 

@@ -91,8 +91,21 @@
 
                         <% } %>
 
+                        <% if (typeof page.adv == 'object' && page.adv.left) { %>
+                        <div style="margin: 10px; text-align: center;">
+                            <%- page.adv.left %>
+                        </div>
+                        <% } %>
+
                     </div>
                     <div id="right" class="story-video">
+
+                        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+                        <div style="margin: 10px; text-align: center;">
+                            <%- page.adv.top %>
+                        </div>
+                        <% } %>
+
                         <div class="title-date-story">
                             <div class="full-kino-title">
                                 <h1><%- movie.title %> (<%- movie.year %>) смотреть онлайн 720 hd</h1>
@@ -113,6 +126,12 @@
                             <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
                         </div>
 
+                        <% if (typeof page.adv == 'object' && page.adv.over) { %>
+                        <div class="full-right-video1" style="margin: 10px; text-align: center;">
+                            <%- page.adv.over %>
+                        </div>
+                        <% } %>
+
                         <div class="full-right-video1 watchLaterBlock" style="display: none;">
                             <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница фильма будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
                         </div>
@@ -128,6 +147,12 @@
                                 <% } %>
                             </div>
                         </div>
+
+                        <% if (typeof page.adv == 'object' && page.adv.under) { %>
+                        <div class="full-right-video1" style="margin: 10px; text-align: center;">
+                            <%- page.adv.under %>
+                        </div>
+                        <% } %>
 
                         <div class="full-screen">
 
@@ -206,6 +231,12 @@
 
                         <% if (page.comments) { %>
                         <%- page.comments %>
+                        <% } %>
+
+                        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+                        <div class="full-right-video1" style="margin: 10px; text-align: center;">
+                            <%- page.adv.bottom %>
+                        </div>
                         <% } %>
 
                     </div>
