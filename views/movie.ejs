@@ -126,15 +126,16 @@
                             <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
                         </div>
 
+                        <div class="full-right-video1 watchLaterBlock" style="display: none;">
+                            <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница фильма будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
+                        </div>
+
                         <% if (typeof page.adv == 'object' && page.adv.over) { %>
-                        <div class="full-right-video1" style="margin: 10px; text-align: center;">
+                        <div class="full-right-video1" style="text-align: center;">
                             <%- page.adv.over %>
                         </div>
                         <% } %>
 
-                        <div class="full-right-video1 watchLaterBlock" style="display: none;">
-                            <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница фильма будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
-                        </div>
                         <div class="section">
                             <ul class="tabss">
                                 <li class="current">Фильм</li>
@@ -149,7 +150,7 @@
                         </div>
 
                         <% if (typeof page.adv == 'object' && page.adv.under) { %>
-                        <div class="full-right-video1" style="margin: 10px; text-align: center;">
+                        <div class="full-right-video1" style="text-align: center;">
                             <%- page.adv.under %>
                         </div>
                         <% } %>
@@ -231,12 +232,6 @@
 
                         <% if (page.comments) { %>
                         <%- page.comments %>
-                        <% } %>
-
-                        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
-                        <div class="full-right-video1" style="margin: 10px; text-align: center;">
-                            <%- page.adv.bottom %>
-                        </div>
                         <% } %>
 
                     </div>
