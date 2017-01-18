@@ -1,15 +1,16 @@
-# Theme Hodor
+# Шаблон «hodor»
 
-![Шаблон «Hodor» для CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Шаблон «Hodor» для CinemaPress ACMS")
+![Шаблон «hodor» для CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Шаблон «hodor» для CinemaPress ACMS")
 
-:art: Шаблон «Hodor» для CinemaPress ACMS
+:art: Шаблон «hodor» для CinemaPress ACMS
 
-- <a href="http://Hodor.CinemaPress.org/" target="_blank">Hodor.CinemaPress.org</a>
+- [Hodor.CinemaPress.org](http://Hodor.CinemaPress.org/)
 
 ## Установка
-1. [Скачать архив](https://github.com/CinemaPress/Theme-Hodor/archive/master.zip)
-2. Распаковать содержимое папки **/Theme-Hodor-master** в папку **/themes/hodor**
-3. Изменить название темы в админ-панели на **hodor**
+1. Скачать архив с [GitHub](https://github.com/cinemapress/theme-hodor/archive/master.zip) или [GitLab](https://gitlab.com/cinemapress/theme-hodor/repository/archive.zip) или [BitBucket](https://bitbucket.org/cinemapress/theme-hodor/get/master.zip) или [Coding](https://coding.net/t/cinemapress/p/theme-hodor/git/archive/master)
+2. Распаковать содержимое папки в архиве в папку **hodor** у Вас на компьютере
+3. Папку **hodor** отправить на сервер в папку **themes**, чтобы путь был **/themes/hodor**
+4. Изменить название темы в админ-панели на **hodor**
 
 ## Установка через установщик тем CinemaPress ACMS
 ```
