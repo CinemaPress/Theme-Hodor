@@ -126,6 +126,10 @@
                 <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
                 <% }); %>
                 <% } %>
+                <% if (page.pagination.all) { %>
+                <span class="nav_ext">...</span>
+                <a href="<%- page.pagination.all.link %>" rel="nofollow"><%- page.pagination.all.number %></a>
+                <% } %>
             </div>
             <div class="nextprev">
                 <% if (page.pagination.prev.length) { %><a href="<%- page.pagination.prev[page.pagination.prev.length-1].link %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.pagination.prev.length) { %></a><% } %>
