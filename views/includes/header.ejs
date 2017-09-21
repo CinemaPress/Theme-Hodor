@@ -1,56 +1,50 @@
 <div class="header">
     <div class="top-line">
         <div class="top-line1">
-            <a href="<%- page.protocol %><%- page.domain %>" class="logo"><%- page.domain %></a>
+            <a href="/" class="logo">LOGO</a>
             <div class="top-menu2"><span></span></div>
             <ul class="reset top-menu">
                 <li>
-                    <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
                     <span style="width:362px;">
                         <em>
-
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/боевик">Боевики</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/вестерн">Вестерн</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/военные">Военный</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/детектив">Детектив</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/драма">Драма</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/история">Исторические</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/комедия">Комедия</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/криминал">Криминал</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/мелодрама">Мелодрама</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Россия">Русские</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/приключения">Приключения</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/семейный">Семейный</a>
+                            <% page.urls.genres.slice(0,15).forEach(function(genre) { %>
+                            <a href="<%- genre.url %>">
+                                <%- genre.title %>
+                            </a>
+                            <% }); %>
                         </em>
                         <em>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/триллер">Триллер</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/ужасы">Ужасы</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/фантастика">Фантастика</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/фэнтези">Фэнтези</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2013">2013</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2014">2014</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2015">2015</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2016">2016</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2017">2017</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Что бы посмотреть?</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы HD720 онлайн</a></em>
+                            <% page.urls.genres.slice(15,23).forEach(function(genre) { %>
+                            <a href="<%- genre.url %>">
+                                <%- genre.title %>
+                            </a>
+                            <% }); %>
+                            <% page.urls.years.slice(0,5).forEach(function(year) { %>
+                            <a href="<%- year.url %>">
+                                <%- year.title %>
+                            </a>
+                            <% }); %>
+                            <a href="/<%- page.urls.content %>?tag=Коллекция">Что бы посмотреть?</a>
+                            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы HD720 онлайн</a>
+                        </em>
                     </span>
                 </li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up">Новинки</a></li>
-                <li> <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>">Сериалы</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a></li>
-                <li> <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up">Новинки</a></li>
+                <li> <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>">Сериалы</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a></li>
+                <li> <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a></li>
                 <li>
                     <a href="#">Топ</a>
                     <span>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-rating-up">По рейтингу КиноПоиск</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-rating-up">По рейтингу IMDb</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-vote-up">По числу голосов КиноПоиск</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-vote-up">По числу голосов IMDb</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Топ сериалов</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=imdb-vote-up">Топ мультфильмов</a>
-                        <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=imdb-vote-up">Топ аниме</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-rating-up">По рейтингу КиноПоиск</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-rating-up">По рейтингу IMDb</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-vote-up">По числу голосов КиноПоиск</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-vote-up">По числу голосов IMDb</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Топ сериалов</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=imdb-vote-up">Топ мультфильмов</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=imdb-vote-up">Топ аниме</a>
                     </span>
                 </li>
             </ul>
@@ -67,7 +61,7 @@
                     </svg>
                 </div>
                 <div class="top-search2">
-                    <form method="get" action='<%- page.protocol %><%- page.domain %>/<%- page.urls.search %>/title'>
+                    <form method="get" action='/<%- page.urls.search %>/title'>
                         <svg viewBox="50.8 50 19.6 20.7">
                             <path d="M59.5,50c0.1,0,0.1,0,0.2,0c1.7,0,3.3,0.5,4.7,1.5c1.7,1.2,2.9,2.9,3.4,4.9C68,57.1,68,58,68,58.8c-0.1,1.6-0.6,3.1-1.6,4.4c-0.1,0.1-0.2,0.2-0.3,0.4c-0.1,0.1-0.1,0.1-0.2,0.2l0,0c1.4,1.3,2.8,2.6,4.1,3.9c0.4,0.4,0.4,1,0,1.4c-0.4,0.4-0.9,0.9-1.3,1.3c-0.3,0.3-0.9,0.4-1.2,0.1c-0.1,0-0.1-0.1-0.2-0.1c-1.4-1.5-2.9-3-4.4-4.5c0,0,0,0-0.1-0.1c-0.3,0.2-0.7,0.3-1,0.4c-0.7,0.2-1.3,0.3-2,0.3c-1.4,0.1-2.8-0.2-4.1-0.8c-2.2-1-3.8-2.8-4.5-5.1c-0.3-0.9-0.4-1.8-0.4-2.8c0.1-1.7,0.6-3.2,1.6-4.5c1-1.3,2.2-2.2,3.7-2.8c0.7-0.3,1.3-0.4,2-0.5c0.3,0,1-0.1,1-0.1C59.4,50,59.5,50,59.5,50z M53.9,58.3c0,0.3,0,0.7,0.1,1c0.3,1.3,1,2.4,2.1,3.2c1.2,0.9,2.7,1.2,4.2,1c0.7-0.1,1.4-0.3,2-0.7c1.6-0.9,2.5-2.3,2.7-4.2c0.1-0.6,0-1.2-0.2-1.8c-0.4-1.5-1.3-2.6-2.7-3.4c-1.1-0.6-2.4-0.7-3.6-0.5c-1,0.2-1.9,0.6-2.7,1.2C54.5,55.3,53.9,56.7,53.9,58.3z"/>
                         </svg>
@@ -79,11 +73,11 @@
         </div>
     </div>
 
-    <% if (typeof slider == 'object' && slider.movies.length) { %>
+    <% if (typeof slider === 'object' && slider.length) { %>
 
     <div id="owl-top" class="owl-carousel owl-theme">
 
-        <% slider.movies.forEach(function (movie) { %>
+        <% slider.forEach(function (movie) { %>
 
         <div class="item">
             <div class="item-top-slider">

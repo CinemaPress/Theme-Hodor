@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" prefix="og: http://ogp.me/ns#
+              video: http://ogp.me/ns/video#
+              ya: http://webmaster.yandex.ru/vocabularies/">
 <head>
 
     <% include includes/head.ejs %>
@@ -17,7 +19,7 @@
 
     <div id="container">
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="margin: 10px; text-align: center;">
             <%- page.adv.top %>
         </div>
@@ -29,7 +31,7 @@
 
                     <div class="fullstory-drops">
 
-                        <a href="<%- page.protocol %><%- page.domain %>">Главная</a> - <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> - <%- movie.title %>
+                        <a href="/">Главная</a><% if (movie.genre_url) { %> - <%- movie.genre_url %><% } else { %> - <%- movie.year_url %><% } %> - <%- movie.title %>
 
                         <div style="float: right;color: #FFFFFF;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
 
@@ -37,7 +39,21 @@
                     <div id="left">
                         <div class="full-left">
                             <div class="full-poster">
-                                <img src="<%- movie.poster %>" id="imgbigp" alt="<%- movie.title %> (<%- movie.year %>)">
+                                <div class="cinemapress-poster">
+                                    <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)" title="<%- movie.title %> (<%- movie.year %>)">
+                                    <% if (movie.quality) { %>
+                                    <div class="cinemapress-quality">
+                                        <span class="cinemapress-svg-quality"></span>
+                                        <%- movie.quality %>
+                                    </div>
+                                    <% } %>
+                                    <% if (movie.translate) { %>
+                                    <div class="cinemapress-translate">
+                                        <span class="cinemapress-svg-translate"></span>
+                                        <%- movie.translate %>
+                                    </div>
+                                    <% } %>
+                                </div>
                             </div>
                             <div class="full-kino-info">
                                 <% if (movie.kp_vote) { %>
@@ -64,25 +80,25 @@
                             <% } %>
                         </div>
 
-                        <a class="full_btn_podborka" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Подборка фильмов</a>
+                        <a class="full_btn_podborka" href="/<%- page.urls.content %>?tag=Коллекция">Подборка фильмов</a>
                         <div class="best-film-block">
                             <ul class="best-film-menu">
-                                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2017">Лучшие фильмы 2017</a></li>
-                                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2016">Лучшие фильмы 2016</a></li>
-                                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2015">Лучшие фильмы 2015</a></li>
+                                <li><a href="/<%- page.urls.year %>/2017">Лучшие фильмы 2017</a></li>
+                                <li><a href="/<%- page.urls.year %>/2016">Лучшие фильмы 2016</a></li>
+                                <li><a href="/<%- page.urls.year %>/2015">Лучшие фильмы 2015</a></li>
                             </ul>
                             <div class="best-icon"></div>
                         </div>
 
-                        <% if (typeof soon == 'object' && soon.movies.length) { %>
+                        <% if (typeof soon === 'object' && soon.length) { %>
 
                         <div class="full-title-scoro-block">
-                            <%- soon.name %>
+                            Скоро выйдет
                         </div>
                         <div class="fullstory-content-slider-scoro">
                             <div id="full-slider-scoro">
 
-                                <% soon.movies.forEach(function (movie) { %>
+                                <% soon.forEach(function (movie) { %>
 
                                 <div class="item-scoro">
                                     <a href="<%- movie.url %>">
@@ -98,10 +114,43 @@
 
                         <% } %>
 
-                        <% if (typeof page.adv == 'object' && page.adv.left) { %>
+                        <% if (typeof page.adv === 'object' && page.adv.left) { %>
                         <div style="margin: 10px; text-align: center;">
                             <%- page.adv.left %>
                         </div>
+                        <% } %>
+
+                        <% if (typeof recent === 'object' && recent.length) { %>
+                        <% recent.forEach(function (comment) { %>
+                        <div style="margin: 3px auto;">
+                            <div class="cinemapress-recent">
+                                <div class="cinemapress-recent-head">
+                                    <% if (comment.avatar) { %>
+                                    <div class="cinemapress-recent-head-avatar">
+                                        <img src="<%- comment.avatar %>" alt="<%- comment.user %>">
+                                    </div>
+                                    <% } %>
+                                    <div class="cinemapress-recent-head-meta">
+                                        <div>
+                                            <a href="<%- comment.url %>"><%- comment.title %></a>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <%- comment.user %>
+                                            </span><span>
+                                                сказал(а)
+                                            </span><span>
+                                                <%- comment.date %>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cinemapress-recent-comment">
+                                    <%- comment.comment %>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
                         <% } %>
 
                     </div>
@@ -131,7 +180,7 @@
                             <span class="full-right-time"><span id="watchLater">Продолжить смотреть позже </span><b>?<i>Страница фильма будет запомнена, чтобы когда Вы вернётесь, смогли продолжить просмотр.</i></b></span>
                         </div>
 
-                        <% if (typeof page.adv == 'object' && page.adv.over) { %>
+                        <% if (typeof page.adv === 'object' && page.adv.over) { %>
                         <div class="full-right-video1" style="text-align: center;">
                             <%- page.adv.over %>
                         </div>
@@ -150,7 +199,7 @@
                             </div>
                         </div>
 
-                        <% if (typeof page.adv == 'object' && page.adv.under) { %>
+                        <% if (typeof page.adv === 'object' && page.adv.under) { %>
                         <div class="full-right-video1" style="text-align: center;">
                             <%- page.adv.under %>
                         </div>
@@ -184,13 +233,29 @@
 
                         <% if (page.seo) { %>
 
-                        <div class="full-right-video1" style="font-weight: normal;">
+                        <div class="full-right-video1" style="font-weight: normal;text-align: justify">
                             <%- page.seo %>
                         </div>
 
                         <% } %>
 
-                        <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+                        <% if (typeof contents === 'object' && contents.length) { %>
+                        <% contents.forEach(function (content) { %>
+                        <div style="float: left; width: 50%;">
+                            <div style="margin: 0; padding: 10px">
+                                <a href="<%- content.url %>" class="cinemapress-news">
+                                    <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 200px">
+                                    <div class="cinemapress-news-title">
+                                        <%- content.title %>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <% }); %>
+                        <% if (contents.length%2) { %><div style="float: left; width: 50%; height: 225px;"></div><% } %>
+                        <% } %>
+
+                        <% if (typeof movies === 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
                         <% if (movies[type].length) { %>
 

@@ -17,22 +17,22 @@
 
     <div id="container">
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="margin: 10px; text-align: center;">
             <%- page.adv.top %>
         </div>
         <% } %>
 
-        <% if (typeof top == 'object' && top.movies.length) { %>
+        <% if (typeof top === 'object' && top.length) { %>
 
         <div class="fullstory-content">
             <div style="background:#000000;color:#FFFFFF;text-align:center;height: 30px;font-size: larger;">
-                <%- top.name %>
+                Топ
             </div>
             <div class="fullstory-content-slider" style="background-color:#000; margin-bottom:0 !important;">
                 <div id="full-slider" style="display: none;">
 
-                    <% top.movies.forEach(function (movie) { %>
+                    <% top.forEach(function (movie) { %>
 
                     <div class="item">
                         <a href="<%- movie.url %>">
@@ -55,10 +55,10 @@
         <div class="category-block">
             <div class="category-content" style="padding: 1px 0 0 0 !important;">
                 <div class="fresh-year">
-                    <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>">
+                    <a href="/<%- page.urls.genre %>">
                         <i class="fresh-year-icon"></i>Все жанры
                     </a>
-                    <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>">
+                    <a href="/<%- page.urls.year %>">
                         <i class="fresh-year-icon"></i>Все годы
                     </a>
                 </div>
@@ -66,47 +66,71 @@
 
                     <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
 
-                    <a class="main_btn_podborka" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Лучшие подборки</a>
-                    <a class="main_btn_hd" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a>
+                    <a class="main_btn_podborka" href="/<%- page.urls.content %>?tag=Коллекция">Лучшие подборки</a>
+                    <a class="main_btn_hd" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a>
 
-						<span class="sortn">
-							<span class="sortn1">
-								<svg viewBox="26.2 26.9 148.1 147.5">
-									<polygon points="91.3,26.9 63.1,26.9 63.1,119.4 26.2,119.4 77.5,174.4 128.1,119.4 91.3,119.4"/>
-									<rect x="109.4" y="82.5" width="27.5" height="18.8"/>
-									<rect x="109.4" y="54.4" width="46.2" height="18.8"/>
-									<rect x="109.4" y="26.9" width="65" height="18.8"/>
-								</svg>
-							</span>
-							<span class="sortn2">
-                                
-                                <% page.sorting.forEach(function (sort) { %>
+                    <% if (typeof page.sorting === 'object') { %>
+                    <span class="sortn">
+                        <span class="sortn1">
+                            <svg viewBox="26.2 26.9 148.1 147.5">
+                                <polygon points="91.3,26.9 63.1,26.9 63.1,119.4 26.2,119.4 77.5,174.4 128.1,119.4 91.3,119.4"/>
+                                <rect x="109.4" y="82.5" width="27.5" height="18.8"/>
+                                <rect x="109.4" y="54.4" width="46.2" height="18.8"/>
+                                <rect x="109.4" y="26.9" width="65" height="18.8"/>
+                            </svg>
+                        </span>
+                        <span class="sortn2">
 
-                                <% if (sort.active) { %>
+                            <% page.sorting.forEach(function (sort) { %>
 
-                                <a href="<%- sort.url %>">
-                                    <strong><%- sort.name %></strong>
-                                </a>
+                            <% if (sort.active) { %>
 
-                                <% } else { %>
+                            <a href="<%- sort.url %>">
+                                <strong><%- sort.name %></strong>
+                            </a>
 
-                                <a href="<%- sort.url %>">
-                                    <%- sort.name %>
-                                </a>
+                            <% } else { %>
 
-                                <% } %>
+                            <a href="<%- sort.url %>">
+                                <%- sort.name %>
+                            </a>
 
-                                <% }); %>
-                                
-							</span>
-						</span>
+                            <% } %>
+
+                            <% }); %>
+
+                        </span>
+                    </span>
+                    <% } %>
                 </div>
 
                 <div class="cat_h1"><h1><%- page.title %></h1></div>
 
+                <% if (typeof content === 'object') { %>
+                <div class="cinemapress-content">
+                    <% if (content.image) { %>
+                    <img src="<%- content.image %>" class="cinemapress-content-image">
+                    <% } %>
+                    <% if (content.description) { %>
+                    <div class="cinemapress-content-description">
+                        <%- content.description %>
+                    </div>
+                    <% } %>
+                    <div class="cinemapress-content-publish">
+                        <% if (content.tags) { %>
+                        <span class="cinemapress-content-publish-tags"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU1LjI1IDU1LjI1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NS4yNSA1NS4yNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxwYXRoIGQ9Ik0wLjUyMyw1MS45MzNsLTAuNDk3LDIuMDg1Yy0wLjAxNiwwLjA2Ny0wLjAyLDAuMTM1LTAuMDIyLDAuMjAyQzAuMDA0LDU0LjIzNCwwLDU0LjI0NiwwLDU0LjI1OSAgIGMwLjAwMSwwLjExNCwwLjAyNiwwLjIyNSwwLjA2NSwwLjMzMmMwLjAwOSwwLjAyNSwwLjAxOSwwLjA0NywwLjAzLDAuMDcxYzAuMDQ5LDAuMTA3LDAuMTEsMC4yMSwwLjE5NiwwLjI5NiAgIGMwLjA5NSwwLjA5NSwwLjIwNywwLjE2OCwwLjMyOCwwLjIxOGMwLjEyMSwwLjA1LDAuMjUsMC4wNzUsMC4zNzksMC4wNzVjMC4wNzcsMCwwLjE1NS0wLjAwOSwwLjIzMS0wLjAyN2wyLjA4Ni0wLjQ5NyAgIEwwLjUyMyw1MS45MzN6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNNTIuNjE4LDIuNjMxYy0zLjUxLTMuNTA4LTkuMjE5LTMuNTA4LTEyLjcyOSwwTDMuODI3LDM4LjY5M0MzLjgxLDM4LjcxLDMuOCwzOC43MzEsMy43ODUsMzguNzQ5ICAgYy0wLjAyMSwwLjAyNC0wLjAzOSwwLjA1LTAuMDU4LDAuMDc2Yy0wLjA1MywwLjA3NC0wLjA5NCwwLjE1My0wLjEyNSwwLjIzOWMtMC4wMDksMC4wMjYtMC4wMjIsMC4wNDktMC4wMjksMC4wNzUgICBjLTAuMDAzLDAuMDEtMC4wMDksMC4wMi0wLjAxMiwwLjAzbC0yLjQ5NSwxMC40OEw1LjYsNTQuMTgybDEwLjQ4LTIuNDk1YzAuMDI3LTAuMDA2LDAuMDUxLTAuMDIxLDAuMDc3LTAuMDMgICBjMC4wMzQtMC4wMTEsMC4wNjYtMC4wMjQsMC4wOTktMC4wMzljMC4wNzItMC4wMzMsMC4xMzktMC4wNzQsMC4yMDEtMC4xMjNjMC4wMjQtMC4wMTksMC4wNDktMC4wMzMsMC4wNzItMC4wNTQgICBjMC4wMDgtMC4wMDgsMC4wMTgtMC4wMTIsMC4wMjYtMC4wMmwzNi4wNjMtMzYuMDYzQzU2LjEyNywxMS44NSw1Ni4xMjcsNi4xNCw1Mi42MTgsMi42MzF6IE0xNy4xNTcsNDcuOTkybDAuMzU0LTMuMTgzICAgTDM5Ljg4OSwyMi40M2MwLjM5MS0wLjM5MSwwLjM5MS0xLjAyMywwLTEuNDE0cy0xLjAyMy0wLjM5MS0xLjQxNCwwTDE2LjA5Nyw0My4zOTVsLTQuNzczLDAuNTNsMC41My00Ljc3M2wyMi4zOC0yMi4zNzggICBjMC4zOTEtMC4zOTEsMC4zOTEtMS4wMjMsMC0xLjQxNHMtMS4wMjMtMC4zOTEtMS40MTQsMEwxMC40NCwzNy43MzhsLTMuMTgzLDAuMzU0TDM0Ljk0LDEwLjQwOWw5LjksOS45TDE3LjE1Nyw0Ny45OTJ6ICAgIE00Ni4yNTQsMTguODk1bC05LjktOS45bDEuNDE0LTEuNDE0bDkuOSw5LjlMNDYuMjU0LDE4Ljg5NXogTTQ5LjA4MiwxNi4wNjdsLTkuOS05LjlsMS40MTUtMS40MTVsOS45LDkuOUw0OS4wODIsMTYuMDY3eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" style="width: 10px;"> <%- content.tags %></span>
+                        <% } %>
+                        <% if (content.tags) { %>
+                        <span class="cinemapress-content-publish-publish"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxjaXJjbGUgY3g9IjMwIiBjeT0iMjkuODc5IiByPSIyIiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMzAsMEMxMy40NTgsMCwwLDEzLjQ1OCwwLDMwczEzLjQ1OCwzMCwzMCwzMHMzMC0xMy40NTgsMzAtMzBTNDYuNTQyLDAsMzAsMHogTTI5LDcuODc5YzAtMC41NTMsMC40NDgtMSwxLTFzMSwwLjQ0NywxLDEgICB2MWMwLDAuNTUzLTAuNDQ4LDEtMSwxcy0xLTAuNDQ3LTEtMVY3Ljg3OXogTTksMzAuODc5SDhjLTAuNTUyLDAtMS0wLjQ0Ny0xLTFzMC40NDgtMSwxLTFoMWMwLjU1MiwwLDEsMC40NDcsMSwxICAgUzkuNTUyLDMwLjg3OSw5LDMwLjg3OXogTTE1Ljg1OCw0NS40MzZsLTAuNzA3LDAuNzA3Yy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTMgICBjLTAuMzkxLTAuMzkxLTAuMzkxLTEuMDIzLDAtMS40MTRsMC43MDctMC43MDdjMC4zOTEtMC4zOTEsMS4wMjMtMC4zOTEsMS40MTQsMFMxNi4yNDksNDUuMDQ1LDE1Ljg1OCw0NS40MzZ6IE0xNS44NTgsMTUuNzM2ICAgYy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTAuNzA3LTAuNzA3Yy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0ICAgczEuMDIzLTAuMzkxLDEuNDE0LDBsMC43MDcsMC43MDdDMTYuMjQ5LDE0LjcxMywxNi4yNDksMTUuMzQ2LDE1Ljg1OCwxNS43MzZ6IE0zMSw1MS44NzljMCwwLjU1My0wLjQ0OCwxLTEsMXMtMS0wLjQ0Ny0xLTF2LTEgICBjMC0wLjU1MywwLjQ0OC0xLDEtMXMxLDAuNDQ3LDEsMVY1MS44Nzl6IE0zMCwzMy44NzljLTEuODU4LDAtMy40MTEtMS4yOC0zLjg1OC0zSDE5Yy0wLjU1MiwwLTEtMC40NDctMS0xczAuNDQ4LTEsMS0xaDcuMTQyICAgYzAuMzY0LTEuMzk5LDEuNDU5LTIuNDk0LDIuODU4LTIuODU4VjE1Ljg3OWMwLTAuNTUzLDAuNDQ4LTEsMS0xczEsMC40NDcsMSwxdjEwLjE0MmMxLjcyLDAuNDQ3LDMsMS45OTksMywzLjg1OCAgIEMzNCwzMi4wODUsMzIuMjA2LDMzLjg3OSwzMCwzMy44Nzl6IE00Ni4yNjMsNDYuMTQzYy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTAuNzA3LTAuNzA3ICAgYy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0czEuMDIzLTAuMzkxLDEuNDE0LDBsMC43MDcsMC43MDdDNDYuNjU0LDQ1LjExOSw0Ni42NTQsNDUuNzUyLDQ2LjI2Myw0Ni4xNDN6IE00Ni4yNjMsMTUuMDI5ICAgbC0wLjcwNywwLjcwN2MtMC4xOTUsMC4xOTUtMC40NTEsMC4yOTMtMC43MDcsMC4yOTNzLTAuNTEyLTAuMDk4LTAuNzA3LTAuMjkzYy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0bDAuNzA3LTAuNzA3ICAgYzAuMzkxLTAuMzkxLDEuMDIzLTAuMzkxLDEuNDE0LDBTNDYuNjU0LDE0LjYzOSw0Ni4yNjMsMTUuMDI5eiBNNTIsMzAuODc5aC0xYy0wLjU1MiwwLTEtMC40NDctMS0xczAuNDQ4LTEsMS0xaDEgICBjMC41NTIsMCwxLDAuNDQ3LDEsMVM1Mi41NTIsMzAuODc5LDUyLDMwLjg3OXoiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" style="width: 10px;"> <%- content.publish %></span>
+                        <% } %>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <% } %>
+
                 <div id="cinemapress-content">
 
-                    <% if (typeof movies == 'object' && movies.length) { %>
+                    <% if (typeof movies === 'object' && movies.length) { %>
 
                     <% movies.forEach(function (movie) { %>
 
@@ -114,25 +138,26 @@
                         <div class="item">
                             <div class="main-sliders-ico">
                                 <span class="main-sliders-mob"></span>
-                                <span class="main-sliders-720p"></span>
                             </div>
                             <div class="main-sliders-shadow">
                                 <div class="main-sliders-img">
-
-										<span class="main-sliders-info">
-											<span class="main-sliders-info1">
-												<span class="main-sliders-popup">
-													<span><%- movie.premiere %></span>
-													<em><%- movie.genres %></em>
-													<i>
-                                                        <%- movie.description_short %>...
-                                                    </i>
-												</span>
-											</span>
-										</span>
-										<span class="main-sliders-bg">
-											<a href="<%- movie.url %>" class="main-sliders-play"><svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
-										</span>
+                                    <% if (movie.quality || movie.translate) { %>
+                                    <div class="main-sliders-season"><% if (movie.quality) { %><%- movie.quality %> | <% } %><% if (movie.translate) { %><%- movie.translate %><% } %></div>
+                                    <% } %>
+                                    <span class="main-sliders-info">
+                                        <span class="main-sliders-info1">
+                                            <span class="main-sliders-popup">
+                                                <span><%- movie.premiere %></span>
+                                                <em><%- movie.genres %></em>
+                                                <i>
+                                                    <%- movie.description_short %>...
+                                                </i>
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span class="main-sliders-bg">
+                                        <a href="<%- movie.url %>" class="main-sliders-play"><svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
+                                    </span>
                                     <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)">
                                 </div>
                             </div>
@@ -146,10 +171,11 @@
 
                     <% } %>
 
-                    <div class="basenavi">
+                    <% if (typeof page.pagination === 'object') { %>
+                    <div class="basenavi" style="margin: 30px auto;">
                         <div class="navigation">
                             <% if (page.pagination.prev.length) { %>
-                            <% page.pagination.prev.slice(-4).forEach(function (prev) { %>
+                            <% page.pagination.prev.forEach(function (prev) { %>
                             <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
                             <% }); %>
                             <span class="nav_ext">...</span>
@@ -157,16 +183,32 @@
                             <span><%- page.pagination.current %></span>
                             <% if (page.pagination.next.length) { %>
                             <span class="nav_ext">...</span>
-                            <% page.pagination.next.slice(0,4).forEach(function (next) { %>
+                            <% page.pagination.next.forEach(function (next) { %>
                             <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
                             <% }); %>
                             <% } %>
                         </div>
                         <div class="nextprev">
-                            <% if (page.pagination.prev.length) { %><a href="<%- page.pagination.prev[page.pagination.prev.length-1].link %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.pagination.prev.length) { %></a><% } %>
-                            <% if (page.pagination.next.length) { %><a href="<%- page.pagination.next[0].link %>" rel="nofollow"><% } %><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span><% if (page.pagination.next.length) { %></a><% } %>
+                            <% if (page.pagination.first) { %>
+                            <a href="<%- page.pagination.first.link %>" rel="nofollow"><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span></a>
+                            <% } else { %>
+                            <span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span>
+                            <% } %>
+                            <% if (page.pagination.last) { %>
+                            <a href="<%- page.pagination.last.link %>" rel="nofollow"><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span></a>
+                            <% } else { %>
+                            <span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span>
+                            <% } %>
                         </div>
                     </div>
+                    <% } %>
+
+                    <% if (typeof content === 'object' && page.comments) { %>
+                    <div style="padding: 10px;">
+                        <%- page.comments %>
+                    </div>
+                    <% } %>
+
                 </div>
             </div>
         </div>

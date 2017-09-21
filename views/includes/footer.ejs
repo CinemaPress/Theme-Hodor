@@ -1,4 +1,22 @@
-<% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+<% if (typeof news === 'object' && news.length) { %>
+<div style="clear: both;height:50px;background: #151516"></div>
+<% news.forEach(function (content) { %>
+<div style="background: #151516" class="cinemapress-news-block">
+    <div style="margin: 0; padding: 10px">
+        <a href="<%- content.url %>" class="cinemapress-news">
+            <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 200px">
+            <div class="cinemapress-news-title">
+                <%- content.title %>
+            </div>
+        </a>
+    </div>
+</div>
+<% }); %>
+<% } %>
+
+<div style="clear: both"></div>
+
+<% if (typeof page.adv === 'object' && page.adv.bottom) { %>
 <div class="main_footer-info" style="text-align: center; padding: 10px;">
     <div class="main_footer-info1">
         <div class="fullstory-drops" style="margin: 20px 0 0 0;">
@@ -20,7 +38,7 @@
 <div class="footer">
     <div class="footer-logo"></div>
     <div class="footer1">
-        &copy;&nbsp;2017&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a>
+        &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a>
     </div>
 
     <% if (page.social) { %>
@@ -32,6 +50,10 @@
         <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
         <span> </span>
         <% if (page.social.gplus) { %><a href="<%- page.social.gplus %>" target="_blank">G+</a><% } %>
+        <span> </span>
+        <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank">youtube</a><% } %>
+        <span> </span>
+        <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank">instagram</a><% } %>
         <span> </span>
     </div>
     <% } %>

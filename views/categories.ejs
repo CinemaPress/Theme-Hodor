@@ -17,7 +17,7 @@
 
     <div id="container">
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="margin: 10px; text-align: center;">
             <%- page.adv.top %>
         </div>
@@ -38,19 +38,21 @@
                     </div>
                     <div class="podborki-block">
 
-                        <% if (typeof categories == 'object' && categories.length) { %>
-
-                        <% categories.forEach(function (category) { %>
-
-                        <div class="podborki-item-block">
-                            <a href="<%- category.url %>" class="podborki-item">
-                                <span class="podborki-img"><img src="<% if (category.image) { %><%- category.image %><% } else { %>https://st.kp.yandex.net/images/kadr/sm_2136182.jpg<% } %>" class="tagimg" alt="<%- category.name %>"></span>
-                                <span class="podborki-title"><%- category.name %></span>
-                            </a>
+                        <% if (typeof categories === 'object' && categories.length) { %>
+                        <div style="clear: both"></div>
+                        <% categories.forEach(function (content) { %>
+                        <div style="float: left; width: 25%;">
+                            <div style="margin: 0; padding: 10px">
+                                <a href="<%- content.url %>" class="cinemapress-news">
+                                    <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 160px">
+                                    <div class="cinemapress-news-title">
+                                        <%- content.title %>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-
                         <% }); %>
-
+                        <div style="clear: both"></div>
                         <% } %>
 
                     </div>

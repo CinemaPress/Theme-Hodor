@@ -19,7 +19,7 @@
 
         <div class="main_h"><h1>Фильмы онлайн в хорошем качестве</h1></div>
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="margin: 10px; text-align: center;">
             <%- page.adv.top %>
         </div>
@@ -30,17 +30,17 @@
 
                 <div style="float: left;position: relative;bottom: 3px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
 
-                <span style="float: right;margin: 18px 12px 0 8px;"><a class="main_btn_podborka" style="position: static !important;" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.collection %>">Лучшие подборки</a></span>
-                <span style="float: right;margin: 18px 5px 0 0;"><a class="main_btn_hd" style="position: static !important;" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a></span>
+                <span style="float: right;margin: 18px 12px 0 8px;"><a class="main_btn_podborka" style="position: static !important;" href="/<%- page.urls.content %>?tag=Коллекция">Лучшие подборки</a></span>
+                <span style="float: right;margin: 18px 5px 0 0;"><a class="main_btn_hd" style="position: static !important;" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a></span>
 
             </div>
         </div>
 
-        <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+        <% if (typeof index === 'object') { for (var type in index) { if (index.hasOwnProperty(type)) { %>
 
-        <% if (movies[type].length) { %>
+        <% if (index[type].length) { %>
 
-        <% movies[type].forEach(function (category) { %>
+        <% index[type].forEach(function (category) { %>
 
         <div class="main-sliders-top1">
             <div class="main-sliders-top-title">
@@ -61,38 +61,40 @@
                     <div class="item">
                         <div class="main-sliders-ico">
                             <span class="main-sliders-mob"></span>
-                            <span class="main-sliders-720p"></span>
                         </div>
                         <div class="main-sliders-shadow">
                             <div class="main-sliders-img">
-                                    <span class="main-sliders-info">
-                                        <span class="main-sliders-info1">
-                                            <span class="main-sliders-popup">
-                                                <span>
-                                                    <%- movie.premiere %>
-                                                </span>
-                                                <em>
-                                                    <%- movie.genres %>
-                                                </em>
-                                                <i>
-                                                    <%- movie.description_short %>...
-                                                </i>
+                                <% if (movie.quality || movie.translate) { %>
+                                <div class="main-sliders-season"><% if (movie.quality) { %><%- movie.quality %> | <% } %><% if (movie.translate) { %><%- movie.translate %><% } %></div>
+                                <% } %>
+                                <span class="main-sliders-info">
+                                    <span class="main-sliders-info1">
+                                        <span class="main-sliders-popup">
+                                            <span>
+                                                <%- movie.premiere %>
                                             </span>
+                                            <em>
+                                                <%- movie.genres %>
+                                            </em>
+                                            <i>
+                                                <%- movie.description_short %>...
+                                            </i>
                                         </span>
                                     </span>
-                                    <span class="main-sliders-bg">
-                                        <a href="<%- movie.url %>" class="main-sliders-play">
-                                            <svg viewBox="83.1 54.3 61.5 73.1">
-                                                <polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon>
-                                            </svg>
-                                        </a>
-                                    </span>
+                                </span>
+                                <span class="main-sliders-bg">
+                                    <a href="<%- movie.url %>" class="main-sliders-play">
+                                        <svg viewBox="83.1 54.3 61.5 73.1">
+                                            <polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon>
+                                        </svg>
+                                    </a>
+                                </span>
                                 <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)" style="height: 260px; width: 180px;">
                             </div>
                         </div>
                         <div class="main-sliders-title">
                             <a href="<%- movie.url %>">
-                                <%- movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
+                                <%- movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия<% } else { %><%- movie.year %><% } %>)
                             </a>
                         </div>
                     </div>
@@ -111,10 +113,11 @@
 
         <% } } } %>
 
+        <% if (typeof page.pagination === 'object') { %>
         <div class="basenavi" style="margin: 30px auto;">
             <div class="navigation">
                 <% if (page.pagination.prev.length) { %>
-                <% page.pagination.prev.slice(-4).forEach(function (prev) { %>
+                <% page.pagination.prev.forEach(function (prev) { %>
                 <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
                 <% }); %>
                 <span class="nav_ext">...</span>
@@ -122,20 +125,25 @@
                 <span><%- page.pagination.current %></span>
                 <% if (page.pagination.next.length) { %>
                 <span class="nav_ext">...</span>
-                <% page.pagination.next.slice(0,4).forEach(function (next) { %>
+                <% page.pagination.next.forEach(function (next) { %>
                 <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
                 <% }); %>
                 <% } %>
-                <% if (page.pagination.all) { %>
-                <span class="nav_ext">...</span>
-                <a href="<%- page.pagination.all.link %>" rel="nofollow"><%- page.pagination.all.number %></a>
-                <% } %>
             </div>
             <div class="nextprev">
-                <% if (page.pagination.prev.length) { %><a href="<%- page.pagination.prev[page.pagination.prev.length-1].link %>" rel="nofollow"><% } %><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span><% if (page.pagination.prev.length) { %></a><% } %>
-                <% if (page.pagination.next.length) { %><a href="<%- page.pagination.next[0].link %>" rel="nofollow"><% } %><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span><% if (page.pagination.next.length) { %></a><% } %>
+                <% if (page.pagination.first) { %>
+                <a href="<%- page.pagination.first.link %>" rel="nofollow"><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span></a>
+                <% } else { %>
+                <span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span>
+                <% } %>
+                <% if (page.pagination.last) { %>
+                <a href="<%- page.pagination.last.link %>" rel="nofollow"><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span></a>
+                <% } else { %>
+                <span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span>
+                <% } %>
             </div>
         </div>
+        <% } %>
 
     </div>
 
