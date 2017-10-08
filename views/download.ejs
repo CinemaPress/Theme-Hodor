@@ -80,35 +80,29 @@
                         <a class="full_btn_podborka" href="/<%- page.urls.content %>?tag=Коллекция">Подборка фильмов</a>
                         <div class="best-film-block">
                             <ul class="best-film-menu">
-                                <li><a href="/<%- page.urls.year %>/2017">Лучшие фильмы 2017</a></li>
-                                <li><a href="/<%- page.urls.year %>/2016">Лучшие фильмы 2016</a></li>
-                                <li><a href="/<%- page.urls.year %>/2015">Лучшие фильмы 2015</a></li>
+                                <% page.urls.years.slice(0,3).forEach(function(year) { %>
+                                <li><a href="<%- year.url %>">Лучшие фильмы <%- year.title %></a></li>
+                                <% }); %>
                             </ul>
                             <div class="best-icon"></div>
                         </div>
 
                         <% if (typeof soon === 'object' && soon.length) { %>
-
                         <div class="full-title-scoro-block">
                             Скоро выйдет
                         </div>
                         <div class="fullstory-content-slider-scoro">
                             <div id="full-slider-scoro">
-
                                 <% soon.forEach(function (movie) { %>
-
                                 <div class="item-scoro">
                                     <a href="<%- movie.url %>">
                                         <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)">
                                         <div class="fullstory-slider-title-scoro"><%- movie.title %> (<%- movie.year %>)</div>
                                     </a>
                                 </div>
-
                                 <% }); %>
-
                             </div>
                         </div>
-
                         <% } %>
 
                         <% if (typeof page.adv === 'object' && page.adv.left) { %>
@@ -180,8 +174,12 @@
                         <div class="section">
                             <ul class="tabss">
                                 <li class="current">Торренты</li>
+                                <% if (page.urls.movies.trailer) { %>
                                 <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></li>
+                                <% } %>
+                                <% if (page.urls.movies.online) { %>
                                 <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
+                                <% } %>
                             </ul>
                             <div class="box visible">
                                 <% if (page.player) { %>
@@ -196,60 +194,21 @@
                         </div>
                         <% } %>
 
-                        <div class="full-screen">
-
-                            <% if (movie.pictures.length) { %>
-
+                        <% if (movie.pictures.length) { %>
+                        <div class="full-screen" id="lightgallery">
                             <% movie.pictures.forEach(function (picture) { %>
-
-                            <div><a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- picture.picture_min %>" alt=""></a></div>
-
+                            <% var ahref = page.urls.movies.picture
+                                    ? movie.url + '/' + page.urls.movies.picture
+                                    : picture.picture_big %>
+                            <div><a href="<%- ahref %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %>"></a></div>
                             <% }); %>
-
-                            <% } %>
-
                         </div>
-
-                        <% if (typeof movies === 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
-
-                        <% if (movies[type].length) { %>
-
-                        <% movies[type].forEach(function (category) { %>
-
-                        <div class="main-sliders-top1">
-                            <div class="main-sliders-top-title">
-
-                                <%- category.name %>
-
-                            </div>
-                        </div>
-
-                        <div class="fullstory-content-slider">
-                            <div class="full-related" style="display: none;">
-
-                                <% if (category.movies.length) { %>
-
-                                <% category.movies.forEach(function (movie) { %>
-
-                                <div class="item">
-                                    <a href="<%- movie.url %>">
-                                        <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)">
-                                        <div class="fullstory-slider-title"><%- movie.title %> (<%- movie.year %>)</div>
-                                    </a>
-                                </div>
-
-                                <% }); %>
-
-                                <% } %>
-
-                            </div>
-                        </div>
-
-                        <% }); %>
-
                         <% } %>
-
-                        <% } } } %>
+                        <% if (!page.urls.movies.picture) { %>
+                        <link href="/themes/hodor/public/css/lightgallery.min.css" rel="stylesheet">
+                        <script src="/themes/hodor/public/js/lightgallery.min.js"></script>
+                        <script>lightGallery(document.getElementById('lightgallery'));</script>
+                        <% } %>
 
                         <% if (typeof contents === 'object' && contents.length) { %>
                         <% contents.forEach(function (content) { %>
@@ -266,6 +225,30 @@
                         <% }); %>
                         <% if (contents.length%2) { %><div style="float: left; width: 50%; height: 225px;"></div><% } %>
                         <% } %>
+
+                        <% if (typeof movies === 'object') {
+                                for (var type in movies) {
+                        if (movies.hasOwnProperty(type) && movies[type].length) {
+                        movies[type].forEach(function (category) { %>
+                        <div class="main-sliders-top1">
+                            <div class="main-sliders-top-title">
+                                <%- category.name %>
+                            </div>
+                        </div>
+                        <div class="fullstory-content-slider">
+                            <div class="full-related" style="display: none;">
+                                <% if (category.movies.length) {
+                                category.movies.forEach(function (movie) { %>
+                                <div class="item">
+                                    <a href="<%- movie.url %>">
+                                        <img src="<%- movie.poster %>" alt="<%- movie.title %> (<%- movie.year %>)">
+                                        <div class="fullstory-slider-title"><%- movie.title %> (<%- movie.year %>)</div>
+                                    </a>
+                                </div>
+                                <% }); } %>
+                            </div>
+                        </div>
+                        <% }); } } } %>
 
                         <% if (page.comments) { %>
                         <%- page.comments %>
