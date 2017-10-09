@@ -200,7 +200,7 @@
                             <% var ahref = page.urls.movies.picture
                                     ? movie.url + '/' + page.urls.movies.picture
                                     : picture.picture_big %>
-                            <div><a href="<%- ahref %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %>"></a></div>
+                            <a href="<%- ahref %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %>"></a>
                             <% }); %>
                         </div>
                         <% } %>
