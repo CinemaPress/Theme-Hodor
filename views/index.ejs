@@ -17,7 +17,7 @@
 
     <div id="container">
 
-        <div class="main_h"><h1>Фильмы онлайн в хорошем качестве</h1></div>
+        <div class="main_h"><h1><%- page.title %></h1></div>
 
         <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="margin: 10px; text-align: center;">
@@ -31,7 +31,7 @@
                 <div style="float: left;position: relative;bottom: 3px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
 
                 <span style="float: right;margin: 18px 12px 0 8px;"><a class="main_btn_podborka" style="position: static !important;" href="/<%- page.urls.content %>?tag=Коллекция">Лучшие подборки</a></span>
-                <span style="float: right;margin: 18px 5px 0 0;"><a class="main_btn_hd" style="position: static !important;" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все фильмы HD720</a></span>
+                <span style="float: right;margin: 18px 5px 0 0;"><a class="main_btn_hd" style="position: static !important;" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все лучшие фильмы</a></span>
 
             </div>
         </div>
