@@ -34,7 +34,7 @@
 
                 <div id="cinemapress-content">
                     <div class="addcomm">
-                        <h1 class="addcomm-title" style="padding-bottom: 0"><%- page.title %></h1>
+                        <h1 class="addcomm-title" style="padding-bottom: 0"><%= page.title %></h1>
                     </div>
                     <div class="podborki-block">
 
@@ -44,9 +44,9 @@
                         <div style="float: left; width: 25%;">
                             <div style="margin: 0; padding: 10px">
                                 <a href="<%- content.url %>" class="cinemapress-news">
-                                    <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 160px">
+                                    <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%= content.title %>" style="height: 160px">
                                     <div class="cinemapress-news-title">
-                                        <%- content.title %>
+                                        <%= content.title %>
                                     </div>
                                 </a>
                             </div>
