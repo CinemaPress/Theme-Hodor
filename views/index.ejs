@@ -25,7 +25,7 @@
         </div>
         <% } %>
 
-        <div class="main-sliders-top1" style="background: #333; height: 80px;">
+        <div class="main-sliders-top1 main-sliders-top1-index" style="height: 80px;">
             <div class="main-sliders-top-title">
 
                 <div style="float: left;position: relative;bottom: 3px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
@@ -59,9 +59,6 @@
                     <% category.movies.forEach(function (movie) { %>
 
                     <div class="item">
-                        <div class="main-sliders-ico">
-                            <span class="main-sliders-mob"></span>
-                        </div>
                         <div class="main-sliders-shadow">
                             <div class="main-sliders-img">
                                 <% if (movie.quality || movie.translate) { %>
