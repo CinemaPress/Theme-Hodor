@@ -28,7 +28,7 @@
                 <div class="full">
                     <div class="fullstory-drops">
 
-                        <a href="/">Главная</a><% if (movie.genre_url) { %> - <%- movie.genre_url %><% } else { %> - <%- movie.year_url %><% } %> - <a href="<%- movie.url %>"><%= movie.title %></a> - Трекер
+                        <a href="/"><%- page.l.home %></a><% if (movie.genre_url) { %> - <%- movie.genre_url %><% } else { %> - <%- movie.year_url %><% } %> - <a href="<%- movie.url %>"><%= movie.title %></a> - <%- page.l.download %>
 
                         <div style="float: right;color: #FFFFFF;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
 
@@ -37,7 +37,7 @@
                         <div class="full-left">
                             <div class="full-poster">
                                 <div class="cinemapress-poster">
-                                    <img src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)" title="<%= movie.title %> (<%- movie.year %>)">
+                                    <img src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>" id="cinemapress-poster">
                                     <% if (movie.quality) { %>
                                     <div class="cinemapress-quality">
                                         <span class="cinemapress-svg-quality"></span>
@@ -54,34 +54,34 @@
                             </div>
                             <div class="full-kino-info">
                                 <% if (movie.kp_vote) { %>
-                                <div><span>КиноПоиск:</span> <%- movie.kp_rating/10 %> (<%- movie.kp_vote %>)</div>
+                                <div><span><%- page.l.kp %>:</span> <%- movie.kp_rating/10 %> (<%- movie.kp_vote %>)</div>
                                 <% } %>
                                 <% if (movie.imdb_vote) { %>
-                                <div><span>IMDb:</span> <%- movie.imdb_rating/10 %> (<%- movie.imdb_vote %>)</div>
+                                <div><span><%- page.l.imdb %>:</span> <%- movie.imdb_rating/10 %> (<%- movie.imdb_vote %>)</div>
                                 <% } %>
                                 <% if (movie.countries_url) { %>
-                                <div><span>Страна:</span> <%- movie.countries_url %></div>
+                                <div><span><%- page.l.countries %>:</span> <%- movie.countries_url %></div>
                                 <% } %>
                                 <% if (movie.year_url) { %>
-                                <div><span>Год:</span> <%- movie.year_url %></div>
+                                <div><span><%- page.l.year %>:</span> <%- movie.year_url %></div>
                                 <% } %>
                                 <% if (movie.genres_url) { %>
-                                <div><span>Жанр:</span> <%- movie.genres_url %></div>
+                                <div><span><%- page.l.genres %>:</span> <%- movie.genres_url %></div>
                                 <% } %>
                                 <% if (movie.directors_url) { %>
-                                <div><span>Режиссер:</span> <%- movie.directors_url %></div>
+                                <div><span><%- page.l.directors %>:</span> <%- movie.directors_url %></div>
                                 <% } %>
                             </div>
                             <% if (movie.actors_url) { %>
-                            <div class="full-kino-info1"><span>В ролях:</span> <%- movie.actors_url %></div>
+                            <div class="full-kino-info1"><span><%- page.l.actors %>:</span> <%- movie.actors_url %></div>
                             <% } %>
                         </div>
 
-                        <a class="full_btn_podborka" href="/<%- page.urls.content %>?tag=Коллекция">Подборка фильмов</a>
+                        <a class="full_btn_podborka" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a>
                         <div class="best-film-block">
                             <ul class="best-film-menu">
                                 <% page.urls.years.slice(0,3).forEach(function(year) { %>
-                                <li><a href="<%- year.url %>">Лучшие фильмы <%- year.title %></a></li>
+                                <li><a href="<%- year.url %>"><%- page.l.top %> <%- year.title %></a></li>
                                 <% }); %>
                             </ul>
                             <div class="best-icon"></div>
@@ -89,7 +89,7 @@
 
                         <% if (typeof soon === 'object' && soon.length) { %>
                         <div class="full-title-scoro-block">
-                            Скоро премьеры
+                            <%- page.l.soon %>
                         </div>
                         <div class="fullstory-content-slider-scoro">
                             <div id="full-slider-scoro">
@@ -129,7 +129,7 @@
                                             <span>
                                                 <%- comment.user %>
                                             </span><span>
-                                                сказал(а)
+                                                <%- page.l.said %>
                                             </span><span>
                                                 <%- comment.date %>
                                             </span>
@@ -148,7 +148,7 @@
                     <div id="right" class="story-video">
                         <div class="title-date-story">
                             <div class="full-kino-title">
-                                <h1><%= movie.title %> (<%- movie.year %>) скачать бесплатно 720 hd</h1>
+                                <h1><%- page.h1 %></h1>
                             </div>
                             <div class="full-kino-date">
                                 <%- movie.premiere %>
@@ -161,7 +161,7 @@
                         </div>
 
                         <div class="full-right-video1 episodesListBlock" style="display: none;">
-                            <h3><%= movie.title %> новые серии</h3>
+                            <h3><%= movie.title %> <%- page.l.episodes %></h3>
                             <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
                         </div>
 
@@ -173,12 +173,12 @@
 
                         <div class="section">
                             <ul class="tabss">
-                                <li class="current">Торренты</li>
+                                <li class="current"><%- page.l.download %></li>
                                 <% if (page.urls.movies.trailer) { %>
-                                <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></li>
+                                <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><%- page.l.trailer %></a></li>
                                 <% } %>
                                 <% if (page.urls.movies.online) { %>
-                                <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
+                                <li style="float: right;"><a href="<%- movie.url %>/<%- page.urls.movies.online %>"><%- page.l.online %></a></li>
                                 <% } %>
                             </ul>
                             <div class="box visible">

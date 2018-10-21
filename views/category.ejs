@@ -27,7 +27,7 @@
 
         <div class="fullstory-content">
             <div style="color:#FFFFFF;text-align:center;height: 30px;font-size: larger;">
-                Топ
+                <%- page.l.top %>
             </div>
             <div class="fullstory-content-slider" style="margin-bottom:0 !important;">
                 <div id="full-slider" style="display: none;">
@@ -56,18 +56,18 @@
             <div class="category-content" style="padding: 1px 0 0 0 !important;">
                 <div class="fresh-year">
                     <a href="/<%- page.urls.genre %>">
-                        <i class="fresh-year-icon"></i>Все жанры
+                        <i class="fresh-year-icon"></i><%- page.l.allGenres %>
                     </a>
                     <a href="/<%- page.urls.year %>">
-                        <i class="fresh-year-icon"></i>Все годы
+                        <i class="fresh-year-icon"></i><%- page.l.allYears %>
                     </a>
                 </div>
                 <div class="category_title1">
 
                     <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
 
-                    <a class="main_btn_podborka" href="/<%- page.urls.content %>?tag=Коллекция">Лучшие подборки</a>
-                    <a class="main_btn_hd" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все лучшие фильмы</a>
+                    <a class="main_btn_podborka" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.top %> <%- page.l.collections %></a>
+                    <a class="main_btn_hd" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.top %> <%- page.l.movies %></a>
 
                     <% if (typeof page.sorting === 'object') { %>
                     <span class="sortn">
@@ -104,7 +104,7 @@
                     <% } %>
                 </div>
 
-                <div class="cat_h1"><h1><%= page.title %></h1></div>
+                <div class="cat_h1"><h1><%- page.h1 %></h1></div>
 
                 <% if (typeof content === 'object') { %>
                 <div class="cinemapress-content">

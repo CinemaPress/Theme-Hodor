@@ -5,7 +5,7 @@
             <div class="top-menu2"><span></span></div>
             <ul class="reset top-menu">
                 <li>
-                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.movies %></a>
                     <span style="width:362px;">
                         <em>
                             <% page.urls.genres.slice(0,15).forEach(function(genre) { %>
@@ -25,33 +25,33 @@
                                 <%- year.title %>
                             </a>
                             <% }); %>
-                            <a href="/<%- page.urls.content %>?tag=Коллекция">Что бы посмотреть?</a>
-                            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Все лучшие фильмы</a>
+                            <a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a>
+                            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.top %> <%- page.l.movies %></a>
                         </em>
                     </span>
                 </li>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up">Новинки</a></li>
-                <li> <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>">Сериалы</a></li>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a></li>
-                <li> <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up"><%- page.l.premieres %></a></li>
+                <li> <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>"><%- page.l.series %></a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>"><%- page.l.cartoons %></a></li>
+                <li> <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>"><%- page.l.anime %></a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>"><%- page.l.tv %></a></li>
                 <li>
-                    <a href="#">Топ</a>
+                    <a href="javascript:void(0)"><%- page.l.top %></a>
                     <span>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-rating-up">По рейтингу КиноПоиск</a>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-rating-up">По рейтингу IMDb</a>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-vote-up">По числу голосов КиноПоиск</a>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-vote-up">По числу голосов IMDb</a>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Топ сериалов</a>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=imdb-vote-up">Топ мультфильмов</a>
-                        <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=imdb-vote-up">Топ аниме</a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-rating-up"><%- page.l.rating %> <%- page.l.kp %></a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-rating-up"><%- page.l.rating %> <%- page.l.imdb %></a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=kinopoisk-vote-up"><%- page.l.popular %>  <%- page.l.kp %></a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=imdb-vote-up"><%- page.l.popular %>  <%- page.l.imdb %></a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up"><%- page.l.top %> <%- page.l.series %></a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=imdb-vote-up"><%- page.l.top %> <%- page.l.cartoons %></a>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=imdb-vote-up"><%- page.l.top %> <%- page.l.anime %></a>
                     </span>
                 </li>
             </ul>
 
             <a href="javascript:void(0)" class="top-see-all continueViewingBlock" id="continueViewing" style="display: none;">
                 <svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"/></svg>
-                <span>На чем остановился?</span>
+                <span><%- page.l.continue %>?</span>
             </a>
 
             <div class="top-search">
@@ -65,8 +65,8 @@
                         <svg viewBox="50.8 50 19.6 20.7">
                             <path d="M59.5,50c0.1,0,0.1,0,0.2,0c1.7,0,3.3,0.5,4.7,1.5c1.7,1.2,2.9,2.9,3.4,4.9C68,57.1,68,58,68,58.8c-0.1,1.6-0.6,3.1-1.6,4.4c-0.1,0.1-0.2,0.2-0.3,0.4c-0.1,0.1-0.1,0.1-0.2,0.2l0,0c1.4,1.3,2.8,2.6,4.1,3.9c0.4,0.4,0.4,1,0,1.4c-0.4,0.4-0.9,0.9-1.3,1.3c-0.3,0.3-0.9,0.4-1.2,0.1c-0.1,0-0.1-0.1-0.2-0.1c-1.4-1.5-2.9-3-4.4-4.5c0,0,0,0-0.1-0.1c-0.3,0.2-0.7,0.3-1,0.4c-0.7,0.2-1.3,0.3-2,0.3c-1.4,0.1-2.8-0.2-4.1-0.8c-2.2-1-3.8-2.8-4.5-5.1c-0.3-0.9-0.4-1.8-0.4-2.8c0.1-1.7,0.6-3.2,1.6-4.5c1-1.3,2.2-2.2,3.7-2.8c0.7-0.3,1.3-0.4,2-0.5c0.3,0,1-0.1,1-0.1C59.4,50,59.5,50,59.5,50z M53.9,58.3c0,0.3,0,0.7,0.1,1c0.3,1.3,1,2.4,2.1,3.2c1.2,0.9,2.7,1.2,4.2,1c0.7-0.1,1.4-0.3,2-0.7c1.6-0.9,2.5-2.3,2.7-4.2c0.1-0.6,0-1.2-0.2-1.8c-0.4-1.5-1.3-2.6-2.7-3.4c-1.1-0.6-2.4-0.7-3.6-0.5c-1,0.2-1.9,0.6-2.7,1.2C54.5,55.3,53.9,56.7,53.9,58.3z"/>
                         </svg>
-                        <input id="story" name="q" value="Введите текст для поиска" onblur="if(this.value=='') this.value='Введите текст для поиска';" onfocus="if(this.value=='Введите текст для поиска') this.value='';" type="text">
-                        <input type="image" src="/themes/hodor/public/images/spacer.gif" title="Поиск" alt="Поиск">
+                        <input id="story" name="q" value="<%- page.l.movieTitle %>" onblur="if(this.value=='') this.value='<%- page.l.movieTitle %>';" onfocus="if(this.value==='<%- page.l.movieTitle %>') this.value='';" type="text">
+                        <input type="image" src="/themes/hodor/public/images/spacer.gif" title="<%- page.l.search %>" alt="<%- page.l.search %>">
                     </form>
                 </div>
             </div>
@@ -80,7 +80,7 @@
         <% slider.forEach(function (movie) { %>
 
         <div class="item">
-            <div class="item-top-slider" style="background:url(<%- movie.picture_big %>) no-repeat center;background-size:cover;">
+            <div class="item-top-slider" style="background:url(<%- movie.picture %>) top center no-repeat; background-size: cover;">
                 <div class="item-top-slider1">
                     <a href="<%- movie.url %>" class="top-slider-link">
                         <svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"/></svg>

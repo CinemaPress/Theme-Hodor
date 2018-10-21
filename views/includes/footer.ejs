@@ -28,7 +28,7 @@
 <div class="main_footer-info recentlyViewedBlock" style="display: none;">
     <div class="main_footer-info1">
         <div class="fullstory-drops" style="margin: 20px 0 0 0;">
-            <div>Вы надавно смотрели:</div>
+            <div><%- page.l.watched %>:</div>
             <div id="recentlyViewed"></div>
         </div>
     </div>
@@ -42,7 +42,7 @@
 
     <% if (page.social) { %>
     <div class="counts">
-        <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank">ВК</a><% } %>
+        <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank"><%- page.l.vk %></a><% } %>
         <span> </span>
         <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>" target="_blank">facebook</a><% } %>
         <span> </span>
@@ -58,7 +58,7 @@
     <% } %>
 
     <div class="footer2">
-        Для связи с администрацией: <span id="mylo">Activate JS</span><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script>
+        Email: <span id="mylo">Activate JS</span><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script>
     </div>
 </div>
 
