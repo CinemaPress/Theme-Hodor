@@ -1,10 +1,10 @@
 # Theme «hodor»
 
-![Theme «hodor» for CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Theme «hodor» for CinemaPress ACMS")
+![Theme «hodor» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Theme «hodor» for CinemaPress")
 
-:art: Theme «hodor» for CinemaPress ACMS
+:art: Theme «hodor» for CinemaPress
 
-- [Hodor.CinemaPress.org](http://Hodor.CinemaPress.org/)
+- [Hodor.CinemaPress.io](http://Hodor.CinemaPress.io/)
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Hodor/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Hodor/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-hodor/get/master.zip) or [Coding](https://coding.net/u/CinemaPress/p/Theme-Hodor/git/archive/master.zip)
@@ -14,7 +14,7 @@
 
 ## Installation via terminal
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```
 
 ## Как установить?
@@ -25,5 +25,5 @@
 
 ## Установка через терминал
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```

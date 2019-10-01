@@ -62,9 +62,19 @@
                         <i class="fresh-year-icon"></i><%- page.l.allYears %>
                     </a>
                 </div>
+
+                <div class="randomMovieCategory">
+                    <div class="cinemapress-random-category"
+                         onclick="window.location.href='<%- page.url %>?random'">
+                        <img src="/themes/hodor/public/images/dice.svg" alt="<%- page.l.random %>">
+                        <span><%- page.l.lucky %></span>
+                        <small><%- page.l.random %></small>
+                    </div>
+                </div>
+
                 <div class="category_title1">
 
-                    <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div> </div>
+                    <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div> </div>
 
                     <a class="main_btn_podborka" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.top %> <%- page.l.collections %></a>
                     <a class="main_btn_hd" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.top %> <%- page.l.movies %></a>

@@ -35,9 +35,9 @@
 </div>
 
 <div class="footer">
-    <div class="footer-logo"></div>
+    <div class="footer-logo" style="background:url(/themes/hodor/public/images/logo.png?v=<%- page.ver %>) no-repeat;background-size: auto 100%;"></div>
     <div class="footer1">
-        &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a>
+        &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.io" target="_blank">CinemaPress</a>
     </div>
 
     <% if (page.social) { %>
@@ -48,7 +48,7 @@
         <span> </span>
         <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
         <span> </span>
-        <% if (page.social.gplus) { %><a href="<%- page.social.gplus %>" target="_blank">G+</a><% } %>
+        <% if (page.social.telegram) { %><a href="<%- page.social.telegram %>" target="_blank">telegram</a><% } %>
         <span> </span>
         <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank">youtube</a><% } %>
         <span> </span>
@@ -62,7 +62,7 @@
     </div>
 </div>
 
-<script src="/themes/hodor/public/js/all.js"></script>
+<script src="/themes/hodor/public/js/all.min.js"></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 <script>

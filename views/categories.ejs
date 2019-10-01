@@ -28,7 +28,7 @@
 
                 <div class="category_title1">
 
-                    <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
+                    <div style="float: left;margin: 10px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div></div>
 
                 </div>
 
@@ -41,13 +41,10 @@
                         <% if (typeof categories === 'object' && categories.length) { %>
                         <div style="clear: both"></div>
                         <% categories.forEach(function (content) { %>
-                        <div style="float: left; width: 25%;">
-                            <div style="margin: 0; padding: 10px">
-                                <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url(<%- content.image %>);">
-                                    <div class="cinemapress-news-title">
-                                        <%= content.title %>
-                                    </div>
-                                </a>
+                        <div style="float:left;width:25%;">
+                            <div style="margin:10px;padding:0;position:relative">
+                                <div class="cinemapress-categories" style="background-image:url(<%- content.image %>);"></div>
+                                <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
                             </div>
                         </div>
                         <% }); %>

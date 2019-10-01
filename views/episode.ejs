@@ -30,7 +30,7 @@
 
                         <a href="/"><%- page.l.home %></a><% if (movie.genre_url) { %> - <%- movie.genre_url %><% } else { %> - <%- movie.year_url %><% } %> - <a href="<%- movie.url %>"><%= movie.title %></a> - <%- page.l.episode %>
 
-                        <div style="float: right;color: #FFFFFF;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"></div></div>
+                        <div style="float: right;color: #FFFFFF;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div></div>
 
                     </div>
                     <div id="left">
@@ -250,6 +250,13 @@
                         <div class="main-sliders-top1">
                             <div class="main-sliders-top-title">
                                 <%- category.name %>
+                                <div class="randomMovieRelated">
+                                    <div class="cinemapress-random-related"
+                                         onclick="window.location.href='<%- category.url %>?random'"
+                                         title="<%- page.l.random %>">
+                                        <img src="/themes/hodor/public/images/dice.svg" alt="<%- page.l.random %>">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="fullstory-content-slider">
