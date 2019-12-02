@@ -3,7 +3,7 @@
 <% news.forEach(function (content) { %>
 <div style="background: #151516" class="cinemapress-news-block">
     <div style="margin: 0; padding: 10px">
-        <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url(<%- content.image %>);">
+        <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
             <div class="cinemapress-news-title">
                 <%= content.title %>
             </div>
@@ -35,7 +35,7 @@
 </div>
 
 <div class="footer">
-    <div class="footer-logo" style="background:url(/themes/hodor/public/images/logo.png?v=<%- page.ver %>) no-repeat;background-size: auto 100%;"></div>
+    <div class="footer-logo" style="background:url('/themes/<%- page.theme %>/public/images/logo.png?v=<%- page.ver %>') no-repeat;background-size: auto 100%;"></div>
     <div class="footer1">
         &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.io" target="_blank">CinemaPress</a>
     </div>
@@ -62,7 +62,7 @@
     </div>
 </div>
 
-<script src="/themes/hodor/public/js/all.min.js"></script>
+<script src="/themes/<%- page.theme %>/public/js/all.min.js"></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 <script>

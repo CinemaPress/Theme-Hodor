@@ -47,9 +47,9 @@
                 <%- category.name %>
                 <div class="randomMovieIndex">
                     <div class="cinemapress-random-index"
-                          onclick="window.location.href='<%- category.url %>?random'"
+                          onclick="window.location.href='<%- (category.url.indexOf('?')+1 ? category.url + '&random' : category.url + '?random') %>'"
                           title="<%- page.l.random %>">
-                        <img src="/themes/hodor/public/images/dice.svg" alt="<%- page.l.random %>">
+                        <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%- page.l.random %>">
                     </div>
                 </div>
             </div>
