@@ -25,17 +25,6 @@
         </div>
         <% } %>
 
-        <div class="main-sliders-top1 main-sliders-top1-index" style="height: 80px;">
-            <div class="main-sliders-top-title">
-
-                <div style="float: left;position: relative;bottom: 3px;"><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTheme="counter"></div> </div>
-
-                <span style="float: right;margin: 18px 12px 0 8px;"><a class="main_btn_podborka" style="position: static !important;" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.top %> <%- page.l.collections %></a></span>
-                <span style="float: right;margin: 18px 5px 0 0;"><a class="main_btn_hd" style="position: static !important;" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.top %> <%- page.l.movies %></a></span>
-
-            </div>
-        </div>
-
         <% if (typeof index === 'object') { for (var type in index) { if (index.hasOwnProperty(type)) { %>
 
         <% if (index[type].length) { %>
