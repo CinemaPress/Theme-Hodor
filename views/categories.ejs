@@ -2,7 +2,7 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <% include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body>
@@ -11,16 +11,16 @@
 
     <div id="header">
 
-        <% include includes/header.ejs %>
+        <%- include('includes/header.ejs'); -%>
 
     </div>
 
     <div id="container">
 
         <% if (typeof page.adv === 'object' && page.adv.top) { %>
-        <div style="margin: 10px; text-align: center;">
-            <%- page.adv.top %>
-        </div>
+            <div style="margin: 10px; text-align: center;">
+                <%- page.adv.top %>
+            </div>
         <% } %>
 
         <div class="category-block">
@@ -37,16 +37,16 @@
                     <div class="podborki-block">
 
                         <% if (typeof categories === 'object' && categories.length) { %>
-                        <div style="clear: both"></div>
-                        <% categories.forEach(function (content) { %>
-                        <div style="float:left;width:25%;">
-                            <div style="margin:10px;padding:0;position:relative">
-                                <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
-                                <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
-                            </div>
-                        </div>
-                        <% }); %>
-                        <div style="clear: both"></div>
+                            <div style="clear: both"></div>
+                            <% categories.forEach(function (content) { %>
+                                <div style="float:left;width:25%;">
+                                    <div style="margin:10px;padding:0;position:relative">
+                                        <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
+                                        <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
+                                    </div>
+                                </div>
+                            <% }); %>
+                            <div style="clear: both"></div>
                         <% } %>
 
                     </div>
@@ -59,13 +59,13 @@
 
     <% if (page.seo) { %>
 
-    <div class="main_footer-info" style="padding: 20px 0;">
-        <div class="main_footer-info1">
-            <div class="main_footer-info2">
-                <%- page.seo %>
+        <div class="main_footer-info" style="padding: 20px 0;">
+            <div class="main_footer-info1">
+                <div class="main_footer-info2">
+                    <%- page.seo %>
+                </div>
             </div>
         </div>
-    </div>
 
     <% } %>
 
@@ -75,7 +75,7 @@
 
 <div id="footer">
 
-    <% include includes/footer.ejs %>
+    <%- include('includes/footer.ejs'); -%>
 
 </div>
 

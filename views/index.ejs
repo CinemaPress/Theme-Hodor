@@ -2,7 +2,7 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <% include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body>
@@ -11,7 +11,7 @@
 
     <div id="header">
 
-        <% include includes/header.ejs %>
+        <%- include('includes/header.ejs'); -%>
 
     </div>
 
@@ -37,8 +37,8 @@
                 <div class="randomMovieIndex">
                     <div <% if (!category.url) { %>style="display:none"<% } %> class="cinemapress-random-index"
                           onclick="window.location.href='<%- (category.url && category.url.indexOf('?')+1 ? category.url + '&random' : category.url + '?random') %>'"
-                          title="<%- page.l.random %>">
-                        <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%- page.l.random %>">
+                          title="<%= page.l.random %>">
+                        <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
                     </div>
                 </div>
             </div>
@@ -158,7 +158,7 @@
 
 <div id="footer">
 
-    <% include includes/footer.ejs %>
+    <%- include('includes/footer.ejs'); -%>
 
 </div>
 

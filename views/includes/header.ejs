@@ -1,7 +1,7 @@
 <div class="header">
     <div class="top-line">
         <div class="top-line1">
-            <a href="/" class="logo" style="background:url('/themes/<%- page.theme %>/public/images/logo.png?v=<%- page.ver %>') no-repeat;background-size: auto 100%;">Logo</a>
+            <a href="/" class="logo" style="background:url('/themes/<%- page.theme %>/public/images/logo.svg?v=<%- page.ver %>') no-repeat;background-size: auto 100%;">Logo</a>
             <div class="top-menu2"><span></span></div>
             <ul class="reset top-menu">
                 <li>
@@ -56,7 +56,7 @@
 
             <div class="randomMovieMenu">
                 <a href="/?random" class="top-see-all cinemapress-random-menu">
-                    <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%- page.l.lucky %>">
+                    <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.lucky %>">
                     <span><%- page.l.lucky %></span>
                 </a>
             </div>
@@ -73,7 +73,7 @@
                             <path d="M59.5,50c0.1,0,0.1,0,0.2,0c1.7,0,3.3,0.5,4.7,1.5c1.7,1.2,2.9,2.9,3.4,4.9C68,57.1,68,58,68,58.8c-0.1,1.6-0.6,3.1-1.6,4.4c-0.1,0.1-0.2,0.2-0.3,0.4c-0.1,0.1-0.1,0.1-0.2,0.2l0,0c1.4,1.3,2.8,2.6,4.1,3.9c0.4,0.4,0.4,1,0,1.4c-0.4,0.4-0.9,0.9-1.3,1.3c-0.3,0.3-0.9,0.4-1.2,0.1c-0.1,0-0.1-0.1-0.2-0.1c-1.4-1.5-2.9-3-4.4-4.5c0,0,0,0-0.1-0.1c-0.3,0.2-0.7,0.3-1,0.4c-0.7,0.2-1.3,0.3-2,0.3c-1.4,0.1-2.8-0.2-4.1-0.8c-2.2-1-3.8-2.8-4.5-5.1c-0.3-0.9-0.4-1.8-0.4-2.8c0.1-1.7,0.6-3.2,1.6-4.5c1-1.3,2.2-2.2,3.7-2.8c0.7-0.3,1.3-0.4,2-0.5c0.3,0,1-0.1,1-0.1C59.4,50,59.5,50,59.5,50z M53.9,58.3c0,0.3,0,0.7,0.1,1c0.3,1.3,1,2.4,2.1,3.2c1.2,0.9,2.7,1.2,4.2,1c0.7-0.1,1.4-0.3,2-0.7c1.6-0.9,2.5-2.3,2.7-4.2c0.1-0.6,0-1.2-0.2-1.8c-0.4-1.5-1.3-2.6-2.7-3.4c-1.1-0.6-2.4-0.7-3.6-0.5c-1,0.2-1.9,0.6-2.7,1.2C54.5,55.3,53.9,56.7,53.9,58.3z"/>
                         </svg>
                         <input id="story" name="q" value="<%- page.l.movieTitle %>" onblur="if(this.value=='') this.value='<%- page.l.movieTitle %>';" onfocus="if(this.value==='<%- page.l.movieTitle %>') this.value='';" type="text" data-autocomplete="desktop">
-                        <input type="image" src="/themes/<%- page.theme %>/public/images/spacer.gif" title="<%- page.l.search %>" alt="<%- page.l.search %>">
+                        <input type="image" src="/themes/<%- page.theme %>/public/images/spacer.gif" title="<%= page.l.search %>" alt="<%= page.l.search %>">
                     </form>
                     <div class="cinemapress-autocomplete" data-autocomplete="desktop"></div>
                 </div>

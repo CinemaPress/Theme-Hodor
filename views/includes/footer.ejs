@@ -1,28 +1,28 @@
 <% if (typeof news === 'object' && news.length) { %>
-<div style="clear: both;height:50px;background: #151516"></div>
-<% news.forEach(function (content) { %>
-<div style="background: #151516" class="cinemapress-news-block">
-    <div style="margin: 0; padding: 10px">
-        <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
-            <div class="cinemapress-news-title">
-                <%= content.title %>
+    <div style="clear: both;height:50px;background: #151516"></div>
+    <% news.forEach(function (content) { %>
+        <div style="background: #151516" class="cinemapress-news-block">
+            <div style="margin: 0; padding: 10px">
+                <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
+                    <div class="cinemapress-news-title">
+                        <%= content.title %>
+                    </div>
+                </a>
             </div>
-        </a>
-    </div>
-</div>
-<% }); %>
+        </div>
+    <% }); %>
 <% } %>
 
 <div style="clear: both"></div>
 
 <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
-<div class="main_footer-info" style="text-align: center; padding: 10px;">
-    <div class="main_footer-info1">
-        <div class="fullstory-drops" style="margin: 20px 0 0 0;">
-            <%- page.adv.bottom %>
+    <div class="main_footer-info" style="text-align: center; padding: 10px;">
+        <div class="main_footer-info1">
+            <div class="fullstory-drops" style="margin: 20px 0 0 0;">
+                <%- page.adv.bottom %>
+            </div>
         </div>
     </div>
-</div>
 <% } %>
 
 <div class="main_footer-info recentlyViewedBlock" style="display: none;">
@@ -35,26 +35,26 @@
 </div>
 
 <div class="footer">
-    <div class="footer-logo" style="background:url('/themes/<%- page.theme %>/public/images/logo.png?v=<%- page.ver %>') no-repeat;background-size: auto 100%;"></div>
+    <div class="footer-logo" style="background:url('/themes/<%- page.theme %>/public/images/logo.svg?v=<%- page.ver %>') no-repeat;background-size: auto 100%;"></div>
     <div class="footer1">
         &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.io" target="_blank">CinemaPress</a>
     </div>
 
     <% if (page.social) { %>
-    <div class="counts">
-        <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank"><%- page.l.vk %></a><% } %>
-        <span> </span>
-        <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>" target="_blank">facebook</a><% } %>
-        <span> </span>
-        <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
-        <span> </span>
-        <% if (page.social.telegram) { %><a href="<%- page.social.telegram %>" target="_blank">telegram</a><% } %>
-        <span> </span>
-        <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank">youtube</a><% } %>
-        <span> </span>
-        <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank">instagram</a><% } %>
-        <span> </span>
-    </div>
+        <div class="counts">
+            <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank"><%- page.l.vk %></a><% } %>
+            <span> </span>
+            <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>" target="_blank">facebook</a><% } %>
+            <span> </span>
+            <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
+            <span> </span>
+            <% if (page.social.telegram) { %><a href="<%- page.social.telegram %>" target="_blank">telegram</a><% } %>
+            <span> </span>
+            <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank">youtube</a><% } %>
+            <span> </span>
+            <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank">instagram</a><% } %>
+            <span> </span>
+        </div>
     <% } %>
 
     <div class="footer2">
@@ -66,11 +66,11 @@
 
 <script  src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 <script>
-    WebFont.load({
-        google: {
-            families: ['PT Sans:400,700,400italic,700italic']
-        }
-    });
+  WebFont.load({
+    google: {
+      families: ['PT Sans:400,700,400italic,700italic']
+    }
+  });
 </script>
 
 <%- page.codes.footer %>

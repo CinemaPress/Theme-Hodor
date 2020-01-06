@@ -1,0 +1,113 @@
+<div class="full-left">
+    <div class="full-poster">
+        <div class="cinemapress-poster">
+            <img src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>" data-cinemapress-poster="<%- movie.poster %>">
+            <% if (movie.quality) { %>
+                <div class="cinemapress-quality">
+                    <span class="cinemapress-svg-quality"></span>
+                    <%- movie.quality %>
+                </div>
+            <% } %>
+            <% if (movie.translate) { %>
+                <div class="cinemapress-translate">
+                    <span class="cinemapress-svg-translate"></span>
+                    <%- movie.translate %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="full-kino-info">
+        <% if (movie.kp_vote) { %>
+            <div><span><%- page.l.kp %>:</span> <%- movie.kp_rating/10 %> (<%- movie.kp_vote %>)</div>
+        <% } %>
+        <% if (movie.imdb_vote) { %>
+            <div><span><%- page.l.imdb %>:</span> <%- movie.imdb_rating/10 %> (<%- movie.imdb_vote %>)</div>
+        <% } %>
+        <% if (movie.countries_url) { %>
+            <div><span><%- page.l.countries %>:</span> <%- movie.countries_url %></div>
+        <% } %>
+        <% if (movie.year_url) { %>
+            <div><span><%- page.l.year %>:</span> <%- movie.year_url %></div>
+        <% } %>
+        <% if (movie.genres_url) { %>
+            <div><span><%- page.l.genres %>:</span> <%- movie.genres_url %></div>
+        <% } %>
+        <% if (movie.directors_url) { %>
+            <div><span><%- page.l.directors %>:</span> <%- movie.directors_url %></div>
+        <% } %>
+    </div>
+    <% if (movie.actors_url) { %>
+        <div class="full-kino-info1"><span><%- page.l.actors %>:</span> <%- movie.actors_url %></div>
+    <% } %>
+    <% if (movie.tags_url) { %>
+        <div class="full-kino-info1" style="background:#333"><span><%- page.l.tags %>:</span> <%- movie.tags_url %></div>
+    <% } %>
+</div>
+
+<a class="full_btn_podborka" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a>
+
+<div class="best-film-block">
+    <ul class="best-film-menu">
+        <% page.urls.years.slice(0,3).forEach(function(year) { %>
+            <li><a href="<%- year.url %>"><%- page.l.top %> <%- year.title %></a></li>
+        <% }); %>
+    </ul>
+    <div class="best-icon"></div>
+</div>
+
+<% if (typeof soon === 'object' && soon.length) { %>
+    <div class="full-title-scoro-block">
+        <%- page.l.soon %>
+    </div>
+    <div class="fullstory-content-slider-scoro">
+        <div id="full-slider-scoro">
+            <% soon.forEach(function (movie) { %>
+                <div class="item-scoro">
+                    <a href="<%- movie.url %>">
+                        <img src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
+                        <div class="fullstory-slider-title-scoro"><%= movie.title %> (<%- movie.year %>)</div>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+<% } %>
+
+<% if (typeof page.adv === 'object' && page.adv.left) { %>
+    <div style="margin: 10px; text-align: center;">
+        <%- page.adv.left %>
+    </div>
+<% } %>
+
+<% if (typeof recent === 'object' && recent.length) { %>
+    <% recent.forEach(function (comment) { %>
+        <div>
+            <div class="cinemapress-comment">
+                <div class="cinemapress-comment-head">
+                    <div class="cinemapress-comment-head-avatar">
+                        <img src="<%- comment.avatar %>" alt="<%= comment.user %>">
+                    </div>
+                    <div class="cinemapress-comment-head-meta">
+                        <div class="cinemapress-comment-head-meta-title">
+                            <a href="<%- comment.url %>" title="<%= comment.title %>"><%= comment.title %></a>
+                        </div>
+                        <div class="cinemapress-comment-user" data-comment-id="<%- comment.id %>">
+                            <div class="cinemapress-comment-user-name">
+                                <%- comment.user %>
+                            </div><div class="cinemapress-comment-user-said">
+                                <%- page.l.said %>
+                            </div><div class="cinemapress-comment-user-date">
+                                <%- comment.date %>
+                            </div><div class="cinemapress-comment-user-link">
+                                <a href="<%- comment.url %>#c<%- comment.id %>" title="<%= comment.title %>">#</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cinemapress-comment-bg cinemapress-comment-radius">
+                    <%- comment.comment %>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+<% } %>
