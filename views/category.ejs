@@ -65,7 +65,7 @@
 
                 <div class="randomMovieCategory">
                     <div class="cinemapress-random-category"
-                         onclick="window.location.href='<%- (page.url.indexOf('?')+1 ? page.url + '&random' : page.url + '?random') %>'">
+                         onclick="window.location.href='<%- (page.url.indexOf('?')+1 ? page.url + '&random=' : page.url + '?random=') %><%- Math.random() %>'">
                         <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
                         <span><%- page.l.lucky %></span>
                         <small><%- page.l.random %></small>
