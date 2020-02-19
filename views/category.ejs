@@ -140,7 +140,7 @@
 
                     <% if (typeof movies === 'object' && movies.length) { %>
 
-                        <% movies.forEach(function (movie) { %>
+                        <% movies.forEach(function (movie) { if (movie.hide) { return; } %>
 
                             <div class="owl-item">
                                 <div class="item">
