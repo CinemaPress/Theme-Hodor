@@ -20,45 +20,53 @@
         <div class="main_h"><h1><%- page.h1 %></h1></div>
 
         <% if (typeof page.adv === 'object' && page.adv.top) { %>
-        <div style="margin: 10px; text-align: center;">
-            <%- page.adv.top %>
-        </div>
+            <div style="margin: 10px; text-align: center;">
+                <%- page.adv.top %>
+            </div>
         <% } %>
 
         <% if (typeof index === 'object') { for (var type in index) { if (index.hasOwnProperty(type)) { %>
 
-        <% if (index[type].length) { %>
+            <% if (index[type].length) { %>
 
-        <% index[type].forEach(function (category) { %>
+                <% index[type].forEach(function (category) { %>
 
-        <div class="main-sliders-top1">
-            <div class="main-sliders-top-title">
-                <%- category.name %>
-                <div class="randomMovieIndex">
-                    <div <% if (!category.url) { %>style="display:none"<% } %> class="cinemapress-random-index"
-                          onclick="window.location.href='<%- (category.url && category.url.indexOf('?')+1 ? category.url + '&random=' : category.url + '?random=') %><%- Math.random() %>'"
-                          title="<%= page.l.random %>">
-                        <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
+                    <div class="main-sliders-top1">
+                        <div class="main-sliders-top-title">
+                            <%- category.name %>
+                            <div class="randomMovieIndex">
+                                <div <% if (!category.url) { %>style="display:none"
+                                        <% } %>
+                                     class="cinemapress-random-index"
+                                     onclick="window.location.href='<%- (category.url && category.url.indexOf('?') + 1 ? category.url + '&random=' : category.url + '?random=') %><%- Math.random() %>'"
+                                     title="<%= page.l.random %>">
+                                    <img src="/themes/<%- page.theme %>/public/images/dice.svg"
+                                         alt="<%= page.l.random %>">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="sliders-bg1">
-            <div class="main-sliders">
-                <div class="movie-slider" style="display: none;">
+                    <div class="sliders-bg1">
+                        <div class="main-sliders">
+                            <div class="movie-slider" style="display: none;">
 
-                    <% if (category.movies.length) { %>
+                                <% if (category.movies.length) { %>
 
-                    <% category.movies.forEach(function (movie) { %>
+                                    <% category.movies.forEach(function (movie) { %>
 
-                    <div class="item">
-                        <div class="main-sliders-shadow">
-                            <div class="main-sliders-img">
-                                <% if (movie.quality || movie.translate) { %>
-                                <div class="main-sliders-season"><% if (movie.quality) { %><%- movie.quality %> | <% } %><% if (movie.translate) { %><%- movie.translate %><% } %></div>
-                                <% } %>
-                                <span class="main-sliders-info">
+                                        <div class="item">
+                                            <div class="main-sliders-shadow">
+                                                <div class="main-sliders-img">
+                                                    <% if (movie.quality || movie.translate) { %>
+                                                        <div class="main-sliders-season">
+                                                            <% if (movie.quality) { %><%- movie.quality %> |
+                                                            <% } %>
+                                                            <% if (movie.translate) { %><%- movie.translate %>
+                                                            <% } %>
+                                                        </div>
+                                                    <% } %>
+                                                    <span class="main-sliders-info">
                                     <span class="main-sliders-info1">
                                         <span class="main-sliders-popup">
                                             <span>
@@ -73,67 +81,79 @@
                                         </span>
                                     </span>
                                 </span>
-                                <span class="main-sliders-bg">
+                                                    <span class="main-sliders-bg">
                                     <a href="<%- movie.url %>" class="main-sliders-play">
                                         <svg viewBox="83.1 54.3 61.5 73.1">
                                             <polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon>
                                         </svg>
                                     </a>
                                 </span>
-                                <img src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)" style="height: 260px; width: 180px;">
+                                                    <img src="<%- movie.poster %>"
+                                                         alt="<%= movie.title %> (<%- movie.year %>)"
+                                                         style="height: 260px; width: 180px;">
+                                                </div>
+                                            </div>
+                                            <div class="main-sliders-title">
+                                                <a href="<%- movie.url %>">
+                                                    <%= movie.title %> (
+                                                    <% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>
+                                                    <% } else { %><%- movie.year %>
+                                                    <% } %>
+                                                    )
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    <% }); %>
+
+                                <% } %>
+
                             </div>
-                        </div>
-                        <div class="main-sliders-title">
-                            <a href="<%- movie.url %>">
-                                <%= movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% } else { %><%- movie.year %><% } %>)
-                            </a>
                         </div>
                     </div>
 
-                    <% }); %>
+                <% }); %>
 
-                    <% } %>
-
-                </div>
-            </div>
-        </div>
-
-        <% }); %>
-
-        <% } %>
+            <% } %>
 
         <% } } } %>
 
         <% if (typeof page.pagination === 'object') { %>
-        <div class="basenavi" style="margin: 30px auto;">
-            <div class="navigation">
-                <% if (page.pagination.prev.length) { %>
-                <% page.pagination.prev.forEach(function (prev) { %>
-                <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
-                <% }); %>
-                <span class="nav_ext">...</span>
-                <% } %>
-                <span><%- page.pagination.current %></span>
-                <% if (page.pagination.next.length) { %>
-                <span class="nav_ext">...</span>
-                <% page.pagination.next.forEach(function (next) { %>
-                <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
-                <% }); %>
-                <% } %>
+            <div class="basenavi" style="margin: 30px auto;">
+                <div class="navigation">
+                    <% if (page.pagination.prev.length) { %>
+                        <% page.pagination.prev.forEach(function (prev) { %>
+                            <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
+                        <% }); %>
+                        <span class="nav_ext">...</span>
+                    <% } %>
+                    <span><%- page.pagination.current %></span>
+                    <% if (page.pagination.next.length) { %>
+                        <span class="nav_ext">...</span>
+                        <% page.pagination.next.forEach(function (next) { %>
+                            <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
+                        <% }); %>
+                    <% } %>
+                </div>
+                <div class="nextprev">
+                    <% if (page.pagination.first) { %>
+                        <a href="<%- page.pagination.first.link %>" rel="nofollow"><span class="thide pprev"><svg
+                                        viewBox="89 120.5 7.2 11"><polygon
+                                            points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span></a>
+                    <% } else { %>
+                        <span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon
+                                        points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span>
+                    <% } %>
+                    <% if (page.pagination.last) { %>
+                        <a href="<%- page.pagination.last.link %>" rel="nofollow"><span class="thide pnext"><svg
+                                        viewBox="123.5 120.5 129.1 200"><polygon
+                                            points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span></a>
+                    <% } else { %>
+                        <span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon
+                                        points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span>
+                    <% } %>
+                </div>
             </div>
-            <div class="nextprev">
-                <% if (page.pagination.first) { %>
-                <a href="<%- page.pagination.first.link %>" rel="nofollow"><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span></a>
-                <% } else { %>
-                <span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span>
-                <% } %>
-                <% if (page.pagination.last) { %>
-                <a href="<%- page.pagination.last.link %>" rel="nofollow"><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span></a>
-                <% } else { %>
-                <span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span>
-                <% } %>
-            </div>
-        </div>
         <% } %>
 
     </div>
@@ -142,13 +162,13 @@
 
     <% if (page.seo) { %>
 
-    <div class="main_footer-info" style="padding: 20px 0;">
-        <div class="main_footer-info1">
-            <div class="main_footer-info2">
-                <%- page.seo %>
+        <div class="main_footer-info" style="padding: 20px 0;">
+            <div class="main_footer-info1">
+                <div class="main_footer-info2">
+                    <%- page.seo %>
+                </div>
             </div>
         </div>
-    </div>
 
     <% } %>
 

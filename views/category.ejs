@@ -65,7 +65,7 @@
 
                 <div class="randomMovieCategory">
                     <div class="cinemapress-random-category"
-                         onclick="window.location.href='<%- (page.url.indexOf('?')+1 ? page.url + '&random=' : page.url + '?random=') %><%- Math.random() %>'">
+                         onclick="window.location.href='<%- (page.url.indexOf('?') + 1 ? page.url + '&random=' : page.url + '?random=') %><%- Math.random() %>'">
                         <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
                         <span><%- page.l.lucky %></span>
                         <small><%- page.l.random %></small>
@@ -74,14 +74,17 @@
 
                 <div class="category_title1">
 
-                    <a class="main_btn_podborka" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.top %> <%- page.l.collections %></a>
-                    <a class="main_btn_hd" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.top %> <%- page.l.movies %></a>
+                    <a class="main_btn_podborka"
+                       href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.top %> <%- page.l.collections %></a>
+                    <a class="main_btn_hd"
+                       href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.top %> <%- page.l.movies %></a>
 
                     <% if (typeof page.sorting === 'object') { %>
                         <span class="sortn">
                         <span class="sortn1">
                             <svg viewBox="26.2 26.9 148.1 147.5">
-                                <polygon points="91.3,26.9 63.1,26.9 63.1,119.4 26.2,119.4 77.5,174.4 128.1,119.4 91.3,119.4"/>
+                                <polygon
+                                        points="91.3,26.9 63.1,26.9 63.1,119.4 26.2,119.4 77.5,174.4 128.1,119.4 91.3,119.4"/>
                                 <rect x="109.4" y="82.5" width="27.5" height="18.8"/>
                                 <rect x="109.4" y="54.4" width="46.2" height="18.8"/>
                                 <rect x="109.4" y="26.9" width="65" height="18.8"/>
@@ -126,10 +129,14 @@
                         <% } %>
                         <div class="cinemapress-content-publish">
                             <% if (content.tags) { %>
-                                <span class="cinemapress-content-publish-tags"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU1LjI1IDU1LjI1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NS4yNSA1NS4yNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxwYXRoIGQ9Ik0wLjUyMyw1MS45MzNsLTAuNDk3LDIuMDg1Yy0wLjAxNiwwLjA2Ny0wLjAyLDAuMTM1LTAuMDIyLDAuMjAyQzAuMDA0LDU0LjIzNCwwLDU0LjI0NiwwLDU0LjI1OSAgIGMwLjAwMSwwLjExNCwwLjAyNiwwLjIyNSwwLjA2NSwwLjMzMmMwLjAwOSwwLjAyNSwwLjAxOSwwLjA0NywwLjAzLDAuMDcxYzAuMDQ5LDAuMTA3LDAuMTEsMC4yMSwwLjE5NiwwLjI5NiAgIGMwLjA5NSwwLjA5NSwwLjIwNywwLjE2OCwwLjMyOCwwLjIxOGMwLjEyMSwwLjA1LDAuMjUsMC4wNzUsMC4zNzksMC4wNzVjMC4wNzcsMCwwLjE1NS0wLjAwOSwwLjIzMS0wLjAyN2wyLjA4Ni0wLjQ5NyAgIEwwLjUyMyw1MS45MzN6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNNTIuNjE4LDIuNjMxYy0zLjUxLTMuNTA4LTkuMjE5LTMuNTA4LTEyLjcyOSwwTDMuODI3LDM4LjY5M0MzLjgxLDM4LjcxLDMuOCwzOC43MzEsMy43ODUsMzguNzQ5ICAgYy0wLjAyMSwwLjAyNC0wLjAzOSwwLjA1LTAuMDU4LDAuMDc2Yy0wLjA1MywwLjA3NC0wLjA5NCwwLjE1My0wLjEyNSwwLjIzOWMtMC4wMDksMC4wMjYtMC4wMjIsMC4wNDktMC4wMjksMC4wNzUgICBjLTAuMDAzLDAuMDEtMC4wMDksMC4wMi0wLjAxMiwwLjAzbC0yLjQ5NSwxMC40OEw1LjYsNTQuMTgybDEwLjQ4LTIuNDk1YzAuMDI3LTAuMDA2LDAuMDUxLTAuMDIxLDAuMDc3LTAuMDMgICBjMC4wMzQtMC4wMTEsMC4wNjYtMC4wMjQsMC4wOTktMC4wMzljMC4wNzItMC4wMzMsMC4xMzktMC4wNzQsMC4yMDEtMC4xMjNjMC4wMjQtMC4wMTksMC4wNDktMC4wMzMsMC4wNzItMC4wNTQgICBjMC4wMDgtMC4wMDgsMC4wMTgtMC4wMTIsMC4wMjYtMC4wMmwzNi4wNjMtMzYuMDYzQzU2LjEyNywxMS44NSw1Ni4xMjcsNi4xNCw1Mi42MTgsMi42MzF6IE0xNy4xNTcsNDcuOTkybDAuMzU0LTMuMTgzICAgTDM5Ljg4OSwyMi40M2MwLjM5MS0wLjM5MSwwLjM5MS0xLjAyMywwLTEuNDE0cy0xLjAyMy0wLjM5MS0xLjQxNCwwTDE2LjA5Nyw0My4zOTVsLTQuNzczLDAuNTNsMC41My00Ljc3M2wyMi4zOC0yMi4zNzggICBjMC4zOTEtMC4zOTEsMC4zOTEtMS4wMjMsMC0xLjQxNHMtMS4wMjMtMC4zOTEtMS40MTQsMEwxMC40NCwzNy43MzhsLTMuMTgzLDAuMzU0TDM0Ljk0LDEwLjQwOWw5LjksOS45TDE3LjE1Nyw0Ny45OTJ6ICAgIE00Ni4yNTQsMTguODk1bC05LjktOS45bDEuNDE0LTEuNDE0bDkuOSw5LjlMNDYuMjU0LDE4Ljg5NXogTTQ5LjA4MiwxNi4wNjdsLTkuOS05LjlsMS40MTUtMS40MTVsOS45LDkuOUw0OS4wODIsMTYuMDY3eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" style="width: 10px;"> <%- content.tags %></span>
+                                <span class="cinemapress-content-publish-tags"><img
+                                            src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU1LjI1IDU1LjI1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NS4yNSA1NS4yNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxwYXRoIGQ9Ik0wLjUyMyw1MS45MzNsLTAuNDk3LDIuMDg1Yy0wLjAxNiwwLjA2Ny0wLjAyLDAuMTM1LTAuMDIyLDAuMjAyQzAuMDA0LDU0LjIzNCwwLDU0LjI0NiwwLDU0LjI1OSAgIGMwLjAwMSwwLjExNCwwLjAyNiwwLjIyNSwwLjA2NSwwLjMzMmMwLjAwOSwwLjAyNSwwLjAxOSwwLjA0NywwLjAzLDAuMDcxYzAuMDQ5LDAuMTA3LDAuMTEsMC4yMSwwLjE5NiwwLjI5NiAgIGMwLjA5NSwwLjA5NSwwLjIwNywwLjE2OCwwLjMyOCwwLjIxOGMwLjEyMSwwLjA1LDAuMjUsMC4wNzUsMC4zNzksMC4wNzVjMC4wNzcsMCwwLjE1NS0wLjAwOSwwLjIzMS0wLjAyN2wyLjA4Ni0wLjQ5NyAgIEwwLjUyMyw1MS45MzN6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNNTIuNjE4LDIuNjMxYy0zLjUxLTMuNTA4LTkuMjE5LTMuNTA4LTEyLjcyOSwwTDMuODI3LDM4LjY5M0MzLjgxLDM4LjcxLDMuOCwzOC43MzEsMy43ODUsMzguNzQ5ICAgYy0wLjAyMSwwLjAyNC0wLjAzOSwwLjA1LTAuMDU4LDAuMDc2Yy0wLjA1MywwLjA3NC0wLjA5NCwwLjE1My0wLjEyNSwwLjIzOWMtMC4wMDksMC4wMjYtMC4wMjIsMC4wNDktMC4wMjksMC4wNzUgICBjLTAuMDAzLDAuMDEtMC4wMDksMC4wMi0wLjAxMiwwLjAzbC0yLjQ5NSwxMC40OEw1LjYsNTQuMTgybDEwLjQ4LTIuNDk1YzAuMDI3LTAuMDA2LDAuMDUxLTAuMDIxLDAuMDc3LTAuMDMgICBjMC4wMzQtMC4wMTEsMC4wNjYtMC4wMjQsMC4wOTktMC4wMzljMC4wNzItMC4wMzMsMC4xMzktMC4wNzQsMC4yMDEtMC4xMjNjMC4wMjQtMC4wMTksMC4wNDktMC4wMzMsMC4wNzItMC4wNTQgICBjMC4wMDgtMC4wMDgsMC4wMTgtMC4wMTIsMC4wMjYtMC4wMmwzNi4wNjMtMzYuMDYzQzU2LjEyNywxMS44NSw1Ni4xMjcsNi4xNCw1Mi42MTgsMi42MzF6IE0xNy4xNTcsNDcuOTkybDAuMzU0LTMuMTgzICAgTDM5Ljg4OSwyMi40M2MwLjM5MS0wLjM5MSwwLjM5MS0xLjAyMywwLTEuNDE0cy0xLjAyMy0wLjM5MS0xLjQxNCwwTDE2LjA5Nyw0My4zOTVsLTQuNzczLDAuNTNsMC41My00Ljc3M2wyMi4zOC0yMi4zNzggICBjMC4zOTEtMC4zOTEsMC4zOTEtMS4wMjMsMC0xLjQxNHMtMS4wMjMtMC4zOTEtMS40MTQsMEwxMC40NCwzNy43MzhsLTMuMTgzLDAuMzU0TDM0Ljk0LDEwLjQwOWw5LjksOS45TDE3LjE1Nyw0Ny45OTJ6ICAgIE00Ni4yNTQsMTguODk1bC05LjktOS45bDEuNDE0LTEuNDE0bDkuOSw5LjlMNDYuMjU0LDE4Ljg5NXogTTQ5LjA4MiwxNi4wNjdsLTkuOS05LjlsMS40MTUtMS40MTVsOS45LDkuOUw0OS4wODIsMTYuMDY3eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="
+                                            style="width: 10px;"> <%- content.tags %></span>
                             <% } %>
                             <% if (content.tags) { %>
-                                <span class="cinemapress-content-publish-publish"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxjaXJjbGUgY3g9IjMwIiBjeT0iMjkuODc5IiByPSIyIiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMzAsMEMxMy40NTgsMCwwLDEzLjQ1OCwwLDMwczEzLjQ1OCwzMCwzMCwzMHMzMC0xMy40NTgsMzAtMzBTNDYuNTQyLDAsMzAsMHogTTI5LDcuODc5YzAtMC41NTMsMC40NDgtMSwxLTFzMSwwLjQ0NywxLDEgICB2MWMwLDAuNTUzLTAuNDQ4LDEtMSwxcy0xLTAuNDQ3LTEtMVY3Ljg3OXogTTksMzAuODc5SDhjLTAuNTUyLDAtMS0wLjQ0Ny0xLTFzMC40NDgtMSwxLTFoMWMwLjU1MiwwLDEsMC40NDcsMSwxICAgUzkuNTUyLDMwLjg3OSw5LDMwLjg3OXogTTE1Ljg1OCw0NS40MzZsLTAuNzA3LDAuNzA3Yy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTMgICBjLTAuMzkxLTAuMzkxLTAuMzkxLTEuMDIzLDAtMS40MTRsMC43MDctMC43MDdjMC4zOTEtMC4zOTEsMS4wMjMtMC4zOTEsMS40MTQsMFMxNi4yNDksNDUuMDQ1LDE1Ljg1OCw0NS40MzZ6IE0xNS44NTgsMTUuNzM2ICAgYy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTAuNzA3LTAuNzA3Yy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0ICAgczEuMDIzLTAuMzkxLDEuNDE0LDBsMC43MDcsMC43MDdDMTYuMjQ5LDE0LjcxMywxNi4yNDksMTUuMzQ2LDE1Ljg1OCwxNS43MzZ6IE0zMSw1MS44NzljMCwwLjU1My0wLjQ0OCwxLTEsMXMtMS0wLjQ0Ny0xLTF2LTEgICBjMC0wLjU1MywwLjQ0OC0xLDEtMXMxLDAuNDQ3LDEsMVY1MS44Nzl6IE0zMCwzMy44NzljLTEuODU4LDAtMy40MTEtMS4yOC0zLjg1OC0zSDE5Yy0wLjU1MiwwLTEtMC40NDctMS0xczAuNDQ4LTEsMS0xaDcuMTQyICAgYzAuMzY0LTEuMzk5LDEuNDU5LTIuNDk0LDIuODU4LTIuODU4VjE1Ljg3OWMwLTAuNTUzLDAuNDQ4LTEsMS0xczEsMC40NDcsMSwxdjEwLjE0MmMxLjcyLDAuNDQ3LDMsMS45OTksMywzLjg1OCAgIEMzNCwzMi4wODUsMzIuMjA2LDMzLjg3OSwzMCwzMy44Nzl6IE00Ni4yNjMsNDYuMTQzYy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTAuNzA3LTAuNzA3ICAgYy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0czEuMDIzLTAuMzkxLDEuNDE0LDBsMC43MDcsMC43MDdDNDYuNjU0LDQ1LjExOSw0Ni42NTQsNDUuNzUyLDQ2LjI2Myw0Ni4xNDN6IE00Ni4yNjMsMTUuMDI5ICAgbC0wLjcwNywwLjcwN2MtMC4xOTUsMC4xOTUtMC40NTEsMC4yOTMtMC43MDcsMC4yOTNzLTAuNTEyLTAuMDk4LTAuNzA3LTAuMjkzYy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0bDAuNzA3LTAuNzA3ICAgYzAuMzkxLTAuMzkxLDEuMDIzLTAuMzkxLDEuNDE0LDBTNDYuNjU0LDE0LjYzOSw0Ni4yNjMsMTUuMDI5eiBNNTIsMzAuODc5aC0xYy0wLjU1MiwwLTEtMC40NDctMS0xczAuNDQ4LTEsMS0xaDEgICBjMC41NTIsMCwxLDAuNDQ3LDEsMVM1Mi41NTIsMzAuODc5LDUyLDMwLjg3OXoiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" style="width: 10px;"> <%- content.publish %></span>
+                                <span class="cinemapress-content-publish-publish"><img
+                                            src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxjaXJjbGUgY3g9IjMwIiBjeT0iMjkuODc5IiByPSIyIiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMzAsMEMxMy40NTgsMCwwLDEzLjQ1OCwwLDMwczEzLjQ1OCwzMCwzMCwzMHMzMC0xMy40NTgsMzAtMzBTNDYuNTQyLDAsMzAsMHogTTI5LDcuODc5YzAtMC41NTMsMC40NDgtMSwxLTFzMSwwLjQ0NywxLDEgICB2MWMwLDAuNTUzLTAuNDQ4LDEtMSwxcy0xLTAuNDQ3LTEtMVY3Ljg3OXogTTksMzAuODc5SDhjLTAuNTUyLDAtMS0wLjQ0Ny0xLTFzMC40NDgtMSwxLTFoMWMwLjU1MiwwLDEsMC40NDcsMSwxICAgUzkuNTUyLDMwLjg3OSw5LDMwLjg3OXogTTE1Ljg1OCw0NS40MzZsLTAuNzA3LDAuNzA3Yy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTMgICBjLTAuMzkxLTAuMzkxLTAuMzkxLTEuMDIzLDAtMS40MTRsMC43MDctMC43MDdjMC4zOTEtMC4zOTEsMS4wMjMtMC4zOTEsMS40MTQsMFMxNi4yNDksNDUuMDQ1LDE1Ljg1OCw0NS40MzZ6IE0xNS44NTgsMTUuNzM2ICAgYy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTAuNzA3LTAuNzA3Yy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0ICAgczEuMDIzLTAuMzkxLDEuNDE0LDBsMC43MDcsMC43MDdDMTYuMjQ5LDE0LjcxMywxNi4yNDksMTUuMzQ2LDE1Ljg1OCwxNS43MzZ6IE0zMSw1MS44NzljMCwwLjU1My0wLjQ0OCwxLTEsMXMtMS0wLjQ0Ny0xLTF2LTEgICBjMC0wLjU1MywwLjQ0OC0xLDEtMXMxLDAuNDQ3LDEsMVY1MS44Nzl6IE0zMCwzMy44NzljLTEuODU4LDAtMy40MTEtMS4yOC0zLjg1OC0zSDE5Yy0wLjU1MiwwLTEtMC40NDctMS0xczAuNDQ4LTEsMS0xaDcuMTQyICAgYzAuMzY0LTEuMzk5LDEuNDU5LTIuNDk0LDIuODU4LTIuODU4VjE1Ljg3OWMwLTAuNTUzLDAuNDQ4LTEsMS0xczEsMC40NDcsMSwxdjEwLjE0MmMxLjcyLDAuNDQ3LDMsMS45OTksMywzLjg1OCAgIEMzNCwzMi4wODUsMzIuMjA2LDMzLjg3OSwzMCwzMy44Nzl6IE00Ni4yNjMsNDYuMTQzYy0wLjE5NSwwLjE5NS0wLjQ1MSwwLjI5My0wLjcwNywwLjI5M3MtMC41MTItMC4wOTgtMC43MDctMC4yOTNsLTAuNzA3LTAuNzA3ICAgYy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0czEuMDIzLTAuMzkxLDEuNDE0LDBsMC43MDcsMC43MDdDNDYuNjU0LDQ1LjExOSw0Ni42NTQsNDUuNzUyLDQ2LjI2Myw0Ni4xNDN6IE00Ni4yNjMsMTUuMDI5ICAgbC0wLjcwNywwLjcwN2MtMC4xOTUsMC4xOTUtMC40NTEsMC4yOTMtMC43MDcsMC4yOTNzLTAuNTEyLTAuMDk4LTAuNzA3LTAuMjkzYy0wLjM5MS0wLjM5MS0wLjM5MS0xLjAyMywwLTEuNDE0bDAuNzA3LTAuNzA3ICAgYzAuMzkxLTAuMzkxLDEuMDIzLTAuMzkxLDEuNDE0LDBTNDYuNjU0LDE0LjYzOSw0Ni4yNjMsMTUuMDI5eiBNNTIsMzAuODc5aC0xYy0wLjU1MiwwLTEtMC40NDctMS0xczAuNDQ4LTEsMS0xaDEgICBjMC41NTIsMCwxLDAuNDQ3LDEsMVM1Mi41NTIsMzAuODc5LDUyLDMwLjg3OXoiIGZpbGw9IiNGRkZGRkYiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
+                                            style="width: 10px;"> <%- content.publish %></span>
                             <% } %>
                         </div>
                     </div>
@@ -140,16 +147,23 @@
 
                     <% if (typeof movies === 'object' && movies.length) { %>
 
-                        <% movies.forEach(function (movie) { if (movie.hide) { return; } %>
+                        <% movies.forEach(function (movie) { if (movie.hide) {
+                            return;
+                        } %>
 
-                            <div class="owl-item">
-                                <div class="item">
-                                    <div class="main-sliders-shadow">
-                                        <div class="main-sliders-img">
-                                            <% if (movie.quality || movie.translate) { %>
-                                                <div class="main-sliders-season"><% if (movie.quality) { %><%- movie.quality %> | <% } %><% if (movie.translate) { %><%- movie.translate %><% } %></div>
-                                            <% } %>
-                                            <span class="main-sliders-info">
+                        <div class="owl-item">
+                            <div class="item">
+                                <div class="main-sliders-shadow">
+                                    <div class="main-sliders-img">
+                                        <% if (movie.quality || movie.translate) { %>
+                                            <div class="main-sliders-season">
+                                                <% if (movie.quality) { %><%- movie.quality %> |
+                                                <% } %>
+                                                <% if (movie.translate) { %><%- movie.translate %>
+                                                <% } %>
+                                            </div>
+                                        <% } %>
+                                        <span class="main-sliders-info">
                                         <span class="main-sliders-info1">
                                             <span class="main-sliders-popup">
                                                 <span><%- movie.premiere %></span>
@@ -160,17 +174,19 @@
                                             </span>
                                         </span>
                                     </span>
-                                            <span class="main-sliders-bg">
-                                        <a href="<%- movie.url %>" class="main-sliders-play"><svg viewBox="83.1 54.3 61.5 73.1"><polygon points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
+                                        <span class="main-sliders-bg">
+                                        <a href="<%- movie.url %>" class="main-sliders-play"><svg
+                                                    viewBox="83.1 54.3 61.5 73.1"><polygon
+                                                        points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
                                     </span>
-                                            <img src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
-                                        </div>
-                                    </div>
-                                    <div class="main-sliders-title">
-                                        <a href="<%- movie.url %>"><%= movie.title %> (<%- movie.year %>)</a>
+                                        <img src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
                                     </div>
                                 </div>
+                                <div class="main-sliders-title">
+                                    <a href="<%- movie.url %>"><%= movie.title %> (<%- movie.year %>)</a>
+                                </div>
                             </div>
+                        </div>
 
                         <% }); %>
 
@@ -195,14 +211,20 @@
                             </div>
                             <div class="nextprev">
                                 <% if (page.pagination.first) { %>
-                                    <a href="<%- page.pagination.first.link %>" rel="nofollow"><span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span></a>
+                                    <a href="<%- page.pagination.first.link %>" rel="nofollow"><span
+                                                class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon
+                                                        points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span></a>
                                 <% } else { %>
-                                    <span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span>
+                                    <span class="thide pprev"><svg viewBox="89 120.5 7.2 11"><polygon
+                                                    points="96.1,122.1 94.5,120.5 89,126 94.5,131.5 96.1,130 92.1,126"></polygon></svg></span>
                                 <% } %>
                                 <% if (page.pagination.last) { %>
-                                    <a href="<%- page.pagination.last.link %>" rel="nofollow"><span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span></a>
+                                    <a href="<%- page.pagination.last.link %>" rel="nofollow"><span class="thide pnext"><svg
+                                                    viewBox="123.5 120.5 129.1 200"><polygon
+                                                        points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span></a>
                                 <% } else { %>
-                                    <span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span>
+                                    <span class="thide pnext"><svg viewBox="123.5 120.5 129.1 200"><polygon
+                                                    points="123.5,291.4 152.6,320.5 252.6,220.5 152.6,120.5 123.5,147.8 196.3,220.5"/></svg></span>
                                 <% } %>
                             </div>
                         </div>
@@ -231,23 +253,34 @@
                                         <div class="cinemapress-comment-form">
                                             <% if (comments.config.bb_codes) { %>
                                                 <div class="cinemapress-comment-form-bb">
-                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-b" data-bb-code="b"><%- page.l.bold.toLowerCase() %></span>
-                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-i" data-bb-code="i"><%- page.l.italic.toLowerCase() %></span>
-                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-spoiler" data-bb-code="spoiler">👻 <%- page.l.spoiler.toLowerCase() %></span>
-                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-search" data-bb-code="search">🔍 <%- page.l.search.toLowerCase() %></span>
-                                                    <input class="cinemapress-comment-bg cinemapress-comment-form-anonymous" name="comment_anonymous" type="text" placeholder="<%- page.l.username %>">
+                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-b"
+                                                          data-bb-code="b"><%- page.l.bold.toLowerCase() %></span>
+                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-i"
+                                                          data-bb-code="i"><%- page.l.italic.toLowerCase() %></span>
+                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-spoiler"
+                                                          data-bb-code="spoiler">👻 <%- page.l.spoiler.toLowerCase() %></span>
+                                                    <span class="cinemapress-comment-bg cinemapress-comment-form-bb-search"
+                                                          data-bb-code="search">🔍 <%- page.l.search.toLowerCase() %></span>
+                                                    <input class="cinemapress-comment-bg cinemapress-comment-form-anonymous"
+                                                           name="comment_anonymous" type="text"
+                                                           placeholder="<%- page.l.username %>">
                                                 </div>
                                             <% } %>
                                             <div>
                                                 <div class="cinemapress-comment-textarea-div">
-                                                    <textarea name="comment_text" class="cinemapress-comment-bg cinemapress-comment-textarea" placeholder="<%- page.l.comment %>" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+                                                    <textarea name="comment_text"
+                                                              class="cinemapress-comment-bg cinemapress-comment-textarea"
+                                                              placeholder="<%- page.l.comment %>" autocomplete="off"
+                                                              autocapitalize="off" spellcheck="false"></textarea>
                                                     <div class="cinemapress-comment-form-bg"></div>
-                                                    <div class="cinemapress-comment-button-bg hover-off" data-comment-type="submit">
+                                                    <div class="cinemapress-comment-button-bg hover-off"
+                                                         data-comment-type="submit">
                                                         <span class="cinemapress-comment-button-text"></span>
                                                     </div>
                                                 </div>
                                                 <% if (comments.config.question) { %>
-                                                    <div class="cinemapress-comment-bg cinemapress-comment-question" style="display: none">
+                                                    <div class="cinemapress-comment-bg cinemapress-comment-question"
+                                                         style="display: none">
                                                         <div class="cinemapress-comment-question-text"><%- comments.config.question %></div>
                                                         <div class="cinemapress-comment-question-answer">
                                                             <% if (comments.config.question_yes) { %>
@@ -258,23 +291,33 @@
                                                             <% } %>
                                                         </div>
                                                         <% if (comments.config.question_yes) { %>
-                                                            <div class="cinemapress-comment-question-text-yes" style="display: none">
+                                                            <div class="cinemapress-comment-question-text-yes"
+                                                                 style="display: none">
                                                                 <%- comments.config.question_yes %>
                                                             </div>
                                                         <% } %>
                                                         <% if (comments.config.question_not) { %>
-                                                            <div class="cinemapress-comment-question-text-not" style="display: none">
+                                                            <div class="cinemapress-comment-question-text-not"
+                                                                 style="display: none">
                                                                 <%- comments.config.question_not %>
                                                             </div>
                                                         <% } %>
                                                         <div class="cinemapress-comment-question-bg"></div>
                                                         <% if (comments.config.question_poster) { %>
-                                                            <div class="cinemapress-comment-question-bg-poster" style="background-image:url('<%- comments.config.question_poster %>')"></div>
+                                                            <div class="cinemapress-comment-question-bg-poster"
+                                                                 style="background-image:url('<%- comments.config.question_poster %>')"></div>
                                                         <% } %>
                                                     </div>
                                                 <% } %>
                                             </div>
-                                            <div style="color:#999;font-size:8px;text-align:right;opacity:.2">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" style="color:#999;font-size:8px" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" style="color:#999;font-size:8px" target="_blank">Terms of Service</a> apply.</div>
+                                            <div style="color:#999;font-size:8px;text-align:right;opacity:.2">This site
+                                                is protected by reCAPTCHA and the Google <a
+                                                        href="https://policies.google.com/privacy"
+                                                        style="color:#999;font-size:8px" target="_blank">Privacy
+                                                    Policy</a> and <a href="https://policies.google.com/terms"
+                                                                      style="color:#999;font-size:8px" target="_blank">Terms
+                                                    of Service</a> apply.
+                                            </div>
                                         </div>
                                         <%- comments.indexer ? comments.indexer : '' %>
                                         <% if (comments.list && comments.list.length) { %>
@@ -301,26 +344,38 @@
                                                         <% } %>
                                                         <div class="cinemapress-comment-head-meta">
                                                             <div class="cinemapress-comment-head-meta-vote">
-                                                        <span class="cinemapress-comment-like" data-comment-type="like" data-comment-id="<%- comment.id %>" title="<%= page.l.like %>">
+                                                        <span class="cinemapress-comment-like" data-comment-type="like"
+                                                              data-comment-id="<%- comment.id %>"
+                                                              title="<%= page.l.like %>">
                                                             <span class="cinemapress-comment-like-icon"></span>
                                                             <span class="cinemapress-comment-like-number"><%- comment.like %></span>
                                                         </span>
-                                                                <span class="cinemapress-comment-dislike" data-comment-type="dislike" data-comment-id="<%- comment.id %>" title="<%= page.l.dislike %>">
+                                                                <span class="cinemapress-comment-dislike"
+                                                                      data-comment-type="dislike"
+                                                                      data-comment-id="<%- comment.id %>"
+                                                                      title="<%= page.l.dislike %>">
                                                             <span class="cinemapress-comment-dislike-number"><%- comment.dislike %></span>
                                                             <span class="cinemapress-comment-dislike-icon"></span>
                                                         </span>
-                                                                <span class="cinemapress-comment-reply" data-reply-id="<%- comment.id %>" data-bb-code="b" data-bb-value="<%- comment.user %>" title="<%= page.l.reply %>">
+                                                                <span class="cinemapress-comment-reply"
+                                                                      data-reply-id="<%- comment.id %>" data-bb-code="b"
+                                                                      data-bb-value="<%- comment.user %>"
+                                                                      title="<%= page.l.reply %>">
                                                             <span class="cinemapress-comment-reply-icon"></span>
                                                         </span>
                                                             </div>
-                                                            <div class="cinemapress-comment-user" data-comment-id="<%- comment.id %>">
+                                                            <div class="cinemapress-comment-user"
+                                                                 data-comment-id="<%- comment.id %>">
                                                                 <div class="cinemapress-comment-user-name">
                                                                     <%- comment.user %>
-                                                                </div><div class="cinemapress-comment-user-said">
+                                                                </div>
+                                                                <div class="cinemapress-comment-user-said">
                                                                     <%- page.l.said %>
-                                                                </div><div class="cinemapress-comment-user-date">
+                                                                </div>
+                                                                <div class="cinemapress-comment-user-date">
                                                                     <%- comment.date %>
-                                                                </div><div class="cinemapress-comment-user-link">
+                                                                </div>
+                                                                <div class="cinemapress-comment-user-link">
                                                                     <a href="<%- comment.url %>#c<%- comment.id %>">#</a>
                                                                 </div>
                                                             </div>
@@ -343,10 +398,12 @@
                                     <% } %>
                                     <div class="cinemapress-comment-arrow">
                                         <% if (comments && comments.prev) { %>
-                                            <div class="cinemapress-prev-comments" onclick="window.location.href='?page=<%- comments.prev %>#cinemapress-comments'"></div>
+                                            <div class="cinemapress-prev-comments"
+                                                 onclick="window.location.href='?page=<%- comments.prev %>#cinemapress-comments'"></div>
                                         <% } %>
                                         <% if (comments && comments.next) { %>
-                                            <div class="cinemapress-next-comments" onclick="window.location.href='?page=<%- comments.next %>#cinemapress-comments'"></div>
+                                            <div class="cinemapress-next-comments"
+                                                 onclick="window.location.href='?page=<%- comments.next %>#cinemapress-comments'"></div>
                                         <% } %>
                                     </div>
                                 </div>
