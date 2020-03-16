@@ -94,13 +94,7 @@
                                                 </div>
                                             </div>
                                             <div class="main-sliders-title">
-                                                <a href="<%- movie.url %>">
-                                                    <%= movie.title %> (
-                                                    <% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>
-                                                    <% } else { %><%- movie.year %>
-                                                    <% } %>
-                                                    )
-                                                </a>
+                                                <a href="<%- movie.url %>"><%= movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% } else { %><%- movie.year %><% } %>)</a>
                                             </div>
                                         </div>
 

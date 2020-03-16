@@ -93,21 +93,11 @@
                         <span class="sortn2">
 
                             <% page.sorting.forEach(function (sort) { %>
-
                                 <% if (sort.active) { %>
-
-                                    <a href="<%- sort.url %>">
-                                <strong><%- sort.name %></strong>
-                            </a>
-
+                                    <a href="<%- sort.url %>"><strong><%- sort.name %></strong></a>
                                 <% } else { %>
-
-                                    <a href="<%- sort.url %>">
-                                <%- sort.name %>
-                            </a>
-
+                                    <a href="<%- sort.url %>"><%- sort.name %></a>
                                 <% } %>
-
                             <% }); %>
 
                         </span>
