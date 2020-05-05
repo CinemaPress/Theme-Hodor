@@ -155,7 +155,7 @@
                             </div>
                             <div class="fullstory-content-slider">
                                 <div class="full-related" style="display: none;">
-                                    <% if (category.movies.length) {
+                                    <% if (typeof category === 'object' && category.movies && category.movies.length) {
                                     category.movies.forEach(function (movie) { %>
                                         <div class="item">
                                             <a href="<%- movie.url %>">
