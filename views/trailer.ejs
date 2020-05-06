@@ -99,8 +99,8 @@
                             </div>
                         <% } %>
                         <% if (!page.urls.movies.picture) { %>
-                            <link href="/themes/default/public/desktop/css/lightgallery.min.css" rel="stylesheet">
-                            <script src="/themes/default/public/desktop/js/lightgallery.min.js"></script>
+                            <link href="/themes/default/public/desktop/css/lightgallery.min.css?v=<%- page.ver %>" rel="stylesheet">
+                            <script src="/themes/default/public/desktop/js/lightgallery.min.js?v=<%- page.ver %>"></script>
                             <script>lightGallery(document.getElementById('lightgallery'));</script>
                         <% } %>
 
