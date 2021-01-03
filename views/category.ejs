@@ -40,7 +40,7 @@
 
                             <div class="item">
                                 <a href="<%- movie.url %>">
-                                    <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
+                                    <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
                                     <div class="fullstory-slider-title"><%= movie.title %> (<%- movie.year %>)</div>
                                 </a>
                             </div>
@@ -173,7 +173,7 @@
                                                     viewBox="83.1 54.3 61.5 73.1"><polygon
                                                         points="83.1,54.3 83.1,127.4 144.7,90.9"></polygon></svg></a>
                                     </span>
-                                        <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
+                                        <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
                                     </div>
                                 </div>
                                 <div class="main-sliders-title">

@@ -98,7 +98,7 @@
             <% slider.forEach(function (movie) { %>
 
                 <div class="item">
-                    <div class="item-top-slider" style="background:url('<%- movie.picture_min %>') top center no-repeat; background-size: cover;" data-cinemapress-bg-src="<%- movie.picture %>">
+                    <div class="lazy item-top-slider" style="background:url('<%- movie.picture_min %>') top center no-repeat; background-size: cover;" data-bg="<%- movie.picture %>">
                         <div class="item-top-slider1">
                             <a href="<%- movie.url %>" class="top-slider-link">
                                 <svg viewBox="83.1 54.3 61.5 73.1">

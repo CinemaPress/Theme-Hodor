@@ -1,7 +1,7 @@
 <div class="full-left">
     <div class="full-poster">
         <div class="cinemapress-poster">
-            <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster_big %>" alt="<%= page.title %>" title="<%= page.title %>"
+            <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster_big %>" alt="<%= page.title %>" title="<%= page.title %>"
                  data-cinemapress-poster="<%- movie.poster %>">
             <% if (movie.quality) { %>
                 <div class="cinemapress-quality">
@@ -67,7 +67,7 @@
             <% soon.forEach(function (movie) { %>
                 <div class="item-scoro">
                     <a href="<%- movie.url %>">
-                        <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
+                        <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>)">
                         <div class="fullstory-slider-title-scoro"><%= movie.title %> (<%- movie.year %>)</div>
                     </a>
                 </div>
