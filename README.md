@@ -1,10 +1,10 @@
 # Theme «hodor»
 
-![Theme «hodor» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png "Theme «hodor» for CinemaPress")
+![Theme «hodor» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png)
 
 :art: Theme «hodor» for CinemaPress
 
-- [Hodor.CinemaPress.io](http://Hodor.CinemaPress.io/)
+- `«hodor»`
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Hodor/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Hodor/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-hodor/get/master.zip)
